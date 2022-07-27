@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Returning a Value" />
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Command line arguments">
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UnderStanding_Methods" />
+        <entry key="$PROJECT_DIR$" value="b9a05dcaa0056524c5ffadbecbd91fb26caa2a90" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,10 +113,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Arrays" />
-        <item itemvalue="Application.FizzBuzz" />
         <item itemvalue="Application.ForLoop" />
+        <item itemvalue="Application.FizzBuzz" />
         <item itemvalue="Application.DoWhile" />
+        <item itemvalue="Application.Arrays" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658792409313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Command line arguments">
+      <created>1658964978289</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658964978289</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +170,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="UnderStanding_Methods" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -172,7 +193,8 @@
     <MESSAGE value="Switch statement with conditional assignment" />
     <MESSAGE value="FizzBuzz" />
     <MESSAGE value="Returning a Value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Returning a Value" />
+    <MESSAGE value="Command line arguments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Command line arguments" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
