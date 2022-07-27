@@ -8,9 +8,9 @@ public class Main {
         char[] opCodes = {'d', 'a', 's', 'm'};
         double[] results = new double[opCodes.length];
 
-//        for (String arg : args) {
-//            System.out.println(arg);
-//        }
+        for (String arg : args) {
+            System.out.println(arg);
+        }
 
         if (args.length == 0 ) {
             for (int i = 0; i < opCodes.length; i++){
