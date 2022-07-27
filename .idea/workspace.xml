@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Returning a Value">
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Calculate Interest Array">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +25,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Acid-Override" />
+        <option name="repository" value="CalcEngine" />
+      </RepoCoordinatesHolder>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -35,15 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Arrays" />
@@ -129,7 +137,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658778282362</updated>
       <workItem from="1658778284070" duration="14633000" />
-      <workItem from="1658925054994" duration="3569000" />
+      <workItem from="1658925054994" duration="7914000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -159,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658954447008</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Calculate Interest Array">
+      <created>1658956916260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658956916260</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +196,8 @@
     <MESSAGE value="Switch statement with conditional assignment" />
     <MESSAGE value="FizzBuzz" />
     <MESSAGE value="Returning a Value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Returning a Value" />
+    <MESSAGE value="Calculate Interest Array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculate Interest Array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,6 +210,11 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
