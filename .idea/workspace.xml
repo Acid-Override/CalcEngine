@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Returning a Value">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java" afterDir="false" />
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Command line arguments">
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,10 +19,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="b9a05dcaa0056524c5ffadbecbd91fb26caa2a90" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,10 +113,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Arrays" />
-        <item itemvalue="Application.FizzBuzz" />
         <item itemvalue="Application.ForLoop" />
+        <item itemvalue="Application.FizzBuzz" />
         <item itemvalue="Application.DoWhile" />
+        <item itemvalue="Application.Arrays" />
       </list>
     </recent_temporary>
   </component>
@@ -129,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658778282362</updated>
       <workItem from="1658778284070" duration="14633000" />
-      <workItem from="1658925054994" duration="3569000" />
+      <workItem from="1658925054994" duration="1315000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -152,12 +152,12 @@
       <option name="project" value="LOCAL" />
       <updated>1658792409313</updated>
     </task>
-    <task id="LOCAL-00004" summary="Returning a Value">
-      <created>1658954447008</created>
+    <task id="LOCAL-00004" summary="Command line arguments">
+      <created>1658964978289</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1658954447008</updated>
+      <updated>1658964978289</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
@@ -170,7 +170,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="UnderStanding_Methods" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -181,22 +193,10 @@
     <MESSAGE value="Switch statement with conditional assignment" />
     <MESSAGE value="FizzBuzz" />
     <MESSAGE value="Returning a Value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Returning a Value" />
+    <MESSAGE value="Command line arguments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Command line arguments" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java</url>
-          <line>14</line>
-          <properties class="com.pluralsight.calcengine.CalculateInterest" method="produceInterestHistory">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="opCodes[i]" language="JAVA" />
