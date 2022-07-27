@@ -1,5 +1,7 @@
 package com.pluralsight.calcengine;
 
+import java.math.RoundingMode;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -21,7 +23,8 @@ public class Main {
         for (double i : results) {
             System.out.println(i);
         }
-        double totalAmount = CalculateInterest.calculateInterest(100, .06, 10);
-        System.out.println("Total amount is : " + totalAmount);
+        double[] totalAmount = CalculateInterest.produceInterestHistory(100, .06, 10);
+//        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);
+//        System.out.println("Total amount is : " + total);
     }
 }
