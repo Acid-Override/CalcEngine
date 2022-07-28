@@ -1,0 +1,59 @@
+Index: src/com/pluralsight/calcengine/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.pluralsight.calcengine;\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello world!\");\n        double[] leftVals = {100.0d, 25.0d, 225.0d, 11.0d};\n        double[] rightVals = {50.0d, 92.0d, 17.0d, 3.0d};\n        char[] opCodes = {'d', 'a', 's', 'm'};\n        double[] results = new double[opCodes.length];\n\n        for (String arg : args) {\n            System.out.println(arg);\n        }\n\n        if (args.length == 0 ) {\n            for (int i = 0; i < opCodes.length; i++){\n                results[i] = execute(opCodes[i], leftVals[i], rightVals[i]);\n            }\n            for (double i : results) {\n                System.out.println(i);\n            }\n        } else if (args.length == 3) {\n            //double result = execute ( args[0].charAt(0), Double.parseDouble(args[1]), Double.parseDouble(args[2]));\n            double result = handleCommandLine(args);\n            System.out.println(result);\n        } else {\n            System.out.println(\"Please provide an operation code and two numeric values.\");\n        }\n\n\n        int[] testArr = new int[520000];\n        for ( int i = 0; i < 520000; i++ ) {\n            testArr[i] = i;\n        }\n        //int[] testArr = {1, 2, 3, 4, 5, 6, 7, 8, 9};\n        int target = 1;\n        int binary = BinarySearch.search(testArr, target );\n        System.out.println(binary);\n        double[] totalAmount = CalculateInterest.produceInterestHistory(100d, .06d, 10);\n//        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);\n        System.out.println(\"Total amount is : \" + totalAmount[totalAmount.length - 1]);\n    }\n\n    private static double handleCommandLine(String[] args) {\n        char opCode = args[0].charAt(0);\n        double leftVal = Double.parseDouble(args[1]);\n        double rightVal = Double.parseDouble(args[2]);\n        double result = execute(opCode, leftVal, rightVal);\n        return result;\n    }\n\n    static double execute(char opCode, double leftVal, double rightVal) {\n        double result = 0.0;\n        switch (opCode) {\n            case 'a' -> result = leftVal + rightVal;\n            case 's' -> result = leftVal - rightVal;\n            case 'm' -> result = leftVal * rightVal;\n            case 'd' -> result = rightVal != 0 ? leftVal / rightVal : 0.0d;\n            default -> System.out.println(\"Invalid letter: \" + opCode);\n        }\n        return result;\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/pluralsight/calcengine/Main.java b/src/com/pluralsight/calcengine/Main.java
+--- a/src/com/pluralsight/calcengine/Main.java	(revision d91ecf4665b0e20cf3af93ab6a7eaef7fc7425f4)
++++ b/src/com/pluralsight/calcengine/Main.java	(date 1658974907615)
+@@ -15,16 +15,24 @@
+         if (args.length == 0 ) {
+             for (int i = 0; i < opCodes.length; i++){
+                 results[i] = execute(opCodes[i], leftVals[i], rightVals[i]);
++<<<<<<< HEAD
++            }
++            for (double i : results) {
++                System.out.println(i);
++            }
++=======
+             }
+             for (double i : results) {
+                 System.out.println(i);
+             }
++>>>>>>> 7c0f4466023d5f11417a7d95197288887febec36
+         } else if (args.length == 3) {
+             //double result = execute ( args[0].charAt(0), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
+             double result = handleCommandLine(args);
+             System.out.println(result);
+         } else {
+             System.out.println("Please provide an operation code and two numeric values.");
++<<<<<<< HEAD
+         }
+ 
+ 
+@@ -36,6 +44,11 @@
+         int target = 1;
+         int binary = BinarySearch.search(testArr, target );
+         System.out.println(binary);
++=======
++        }
++
++
++>>>>>>> 7c0f4466023d5f11417a7d95197288887febec36
+         double[] totalAmount = CalculateInterest.produceInterestHistory(100d, .06d, 10);
+ //        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);
+         System.out.println("Total amount is : " + totalAmount[totalAmount.length - 1]);
+@@ -49,7 +62,11 @@
+         return result;
+     }
+ 
++<<<<<<< HEAD
+     static double execute(char opCode, double leftVal, double rightVal) {
++=======
++    static double execute(char opCode, double leftVal, double rightVal){
++>>>>>>> 7c0f4466023d5f11417a7d95197288887febec36
+         double result = 0.0;
+         switch (opCode) {
+             case 'a' -> result = leftVal + rightVal;
