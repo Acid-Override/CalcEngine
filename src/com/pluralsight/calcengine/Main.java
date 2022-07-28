@@ -28,6 +28,14 @@ public class Main {
         }
 
 
+        int[] testArr = new int[520000];
+        for ( int i = 0; i < 520000; i++ ) {
+            testArr[i] = i;
+        }
+        //int[] testArr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int target = 1;
+        int binary = BinarySearch.search(testArr, target );
+        System.out.println(binary);
         double[] totalAmount = CalculateInterest.produceInterestHistory(100d, .06d, 10);
 //        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);
         System.out.println("Total amount is : " + totalAmount[totalAmount.length - 1]);
@@ -41,7 +49,7 @@ public class Main {
         return result;
     }
 
-    static double execute(char opCode, double leftVal, double rightVal){
+    static double execute(char opCode, double leftVal, double rightVal) {
         double result = 0.0;
         switch (opCode) {
             case 'a' -> result = leftVal + rightVal;
