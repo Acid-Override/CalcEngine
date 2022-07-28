@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Reducing Array Size">
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BlockStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BlockStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Acid-Override" />
+        <option name="repository" value="CalcEngine" />
+      </RepoCoordinatesHolder>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -173,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658975601453</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="BlockStatement update">
+      <created>1658979261127</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658979261127</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,19 +199,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="BinTest" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -211,7 +214,8 @@
     <MESSAGE value="Big Binary Search" />
     <MESSAGE value="Increasing Array Size" />
     <MESSAGE value="Reducing Array Size" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reducing Array Size" />
+    <MESSAGE value="BlockStatement update" />
+    <option name="LAST_COMMIT_MESSAGE" value="BlockStatement update" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
