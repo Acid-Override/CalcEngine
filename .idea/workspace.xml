@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Reducing Array Size">
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Factorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Factorial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

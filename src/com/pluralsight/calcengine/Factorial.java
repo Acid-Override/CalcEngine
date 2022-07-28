@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Factorial {
 
-    public static void main(String[] args) {
+    public static void factorial() {
 
         System.out.println("Please enter a positive whole number greater than 1 :");
         Scanner sc = new Scanner(System.in);
