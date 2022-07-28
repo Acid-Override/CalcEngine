@@ -2,7 +2,7 @@ package com.pluralsight.calcengine;
 
 public class BlockStatement {
 
-    public static void main(String[] args) {
+    public static void main() {
         int v1 = 10, v2 = 40;
         final int diff;
 
