@@ -14,6 +14,7 @@ public class FizzBuzz {
                 result += "Buzz";
             }
 
+            //find a better return statement
             if ( result.length() > 0 ){
                 System.out.println(result);
             } else {
