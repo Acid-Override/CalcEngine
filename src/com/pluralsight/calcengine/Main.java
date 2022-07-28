@@ -27,8 +27,8 @@ public class Main {
             System.out.println("Please provide an operation code and two numeric values.");
         }
 
-        int[] testArr = new int[5200001];
-        for (var i = 0; i < 5200001; i++ ) {
+        int[] testArr = new int[520];
+        for (var i = 0; i < 520; i++ ) {
             testArr[i] = i;
         }
         BinarySearch.search(testArr, 1);
