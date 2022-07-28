@@ -16,4 +16,7 @@ public class BinarySearch {
         }
         return arr[mid] == target ? mid : -1;
     }
+    public static int recursiveSearch(int[] arr, int target) {
+        //recursive code here
+    }
 }
