@@ -18,5 +18,7 @@ public class BinarySearch {
     }
     public static int recursiveSearch(int[] arr, int target) {
         //recursive code here
+        //more code here
+        return 21;
     }
 }
