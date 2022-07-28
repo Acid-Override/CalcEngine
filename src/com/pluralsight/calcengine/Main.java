@@ -2,7 +2,7 @@ package com.pluralsight.calcengine;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world! This is just the beginning");
+        System.out.println("Hello world!");
         Factorial.factorial();
         double[] leftVals = {100.0d, 25.0d, 225.0d, 11.0d};
         double[] rightVals = {50.0d, 92.0d, 17.0d, 3.0d};
