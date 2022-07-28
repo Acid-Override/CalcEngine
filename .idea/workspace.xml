@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Big Binary Search">
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Reducing Array Size">
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +190,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Binary" />
+                        <option value="BinTest" />
                       </list>
                     </value>
                   </entry>
@@ -210,7 +210,8 @@
     <MESSAGE value="Command line arguments" />
     <MESSAGE value="Big Binary Search" />
     <MESSAGE value="Increasing Array Size" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increasing Array Size" />
+    <MESSAGE value="Reducing Array Size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reducing Array Size" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
