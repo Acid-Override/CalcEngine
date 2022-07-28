@@ -27,6 +27,11 @@ public class Main {
             System.out.println("Please provide an operation code and two numeric values.");
         }
 
+        int[] testArr = new int[520000];
+        for (var i = 0; i < 520000; i++ ) {
+            testArr[i] = i;
+        }
+        BinarySearch.search(testArr, 1);
 
         double[] totalAmount = CalculateInterest.produceInterestHistory(100d, .06d, 10);
 //        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);
