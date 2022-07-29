@@ -30,8 +30,6 @@ public class BinarySearch {
                 return recursiveSearch(arr, target, min, mid - 1);
             }
             return recursiveSearch(arr, target, mid + 1, max);
-
-
         }
         return -1;
     }
