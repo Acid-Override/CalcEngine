@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="opCodeFromString and valueFromString">
-      <change afterPath="$PROJECT_DIR$/.idea/azure/azureSettings.xml" afterDir="false" />
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="String.format update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +54,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.com.pluralsight.calcengine.Main">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.BinarySearch" />
       <module name="CalcEngine" />
@@ -96,8 +94,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
+    <configuration name="StringEquality" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.StringEquality" />
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
@@ -109,9 +107,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StringEquality" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.StringEquality" />
+    <configuration name="com.pluralsight.calcengine.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
       <module name="CalcEngine" />
+      <option name="PROGRAM_PARAMETERS" value="interactive" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.pluralsight.calcengine.*" />
@@ -126,12 +125,12 @@
       <item itemvalue="Application.BinarySearch" />
       <item itemvalue="Application.FizzBuzz" />
       <item itemvalue="Application.ForLoop" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.com.pluralsight.calcengine.Main" />
       <item itemvalue="Application.StringEquality" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.com.pluralsight.calcengine.Main" />
         <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.StringEquality" />
         <item itemvalue="Application.ForLoop" />
@@ -150,7 +149,8 @@
       <workItem from="1658778284070" duration="14633000" />
       <workItem from="1658925054994" duration="1315000" />
       <workItem from="1659059429104" duration="13404000" />
-      <workItem from="1659137356920" duration="11590000" />
+      <workItem from="1659137356920" duration="14100000" />
+      <workItem from="1659307501626" duration="4196000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -257,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659066472263</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="String.format update">
+      <created>1659245428255</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1659245428255</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +296,8 @@
     <MESSAGE value="Recursive Binary Search" />
     <MESSAGE value="String Equality class setup" />
     <MESSAGE value="opCodeFromString and valueFromString" />
-    <option name="LAST_COMMIT_MESSAGE" value="opCodeFromString and valueFromString" />
+    <MESSAGE value="String.format update" />
+    <option name="LAST_COMMIT_MESSAGE" value="String.format update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -298,11 +306,6 @@
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
           <line>6</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java</url>

@@ -92,11 +92,11 @@ public class Main {
 //        sb.append(leftVal);
 //        sb.append(symbol);
 //        sb.append(rightVal);
-//        sb.append(" is ");
+//        sb.append(" = ");
 //        sb.append(result);
 //        String printOutResult = sb.toString();
 
-        String printOutResult = String.format("The result of %.1f %s %.1f is %.2f", leftVal, symbol, rightVal, result);
+        String printOutResult = String.format("The result of %+.1f %c %+.1f = %+.1f", leftVal, symbol, rightVal, result);
 
         System.out.println(printOutResult);
     }
@@ -141,12 +141,15 @@ public class Main {
     static double valueFromString(String str){
         String[] stringOfValues = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
-        double value = 0d ;
+        double value = -1d ;
         for ( int i = 0; i < stringOfValues.length; i++ ) {
             if ( str.equals(stringOfValues[i])) {
                 value = i;
                 break;
             }
+        }
+        if (value == -1d) {
+            value = Double.parseDouble(str);
         }
         return value;
     }
