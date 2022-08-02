@@ -2,7 +2,7 @@ package com.pluralsight.calcengine;
 
 public class Flight {
     //setting passengers and seats to private protects state
-    // only allowing public methods to modify state
+    // only public methods may modify state
 
     //both class AND constructor must be public
     private int passengers;

@@ -6,6 +6,9 @@ public class CalculateInterest {
     private static double rate;
     private static int years;
 
+    CalculateInterest() {
+    }
+
     public static double calculateInterest(double amt, double rate, int years) {
         CalculateInterest.amt = amt;
         CalculateInterest.rate = rate;

@@ -4,8 +4,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import static com.pluralsight.calcengine.Solution.twoSum;
+
 public class Main {
     public static void main(String[] zargs) {
+
+        //[2,7,11,15], target = 9
+        int[] test = {2, 4, 11, 3};
+        int tar = 6;
+
+        twoSum(test, tar);
+
+
         System.out.println("Please enter a command or nothing for example calc. (ex: Multiply two nine or interactive or binary search)");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
@@ -27,7 +37,7 @@ public class Main {
 
             for (MathEquation equation: equations) {
                 equation.execute();
-                System.out.println("Result = " + equation.result);
+                System.out.println("Result = " + equation.result + " and counter is currently: " + equation.counter);
             }
 
         } else if (args.length == 3) {
