@@ -6,8 +6,15 @@ public class MathEquation {
     double rightVal;
     char opCode;
     double result;
+    int counter;
+
+    MathEquation() {
+        counter = 0;
+
+    }
 
     void execute() {
+        counter++;
         double result = 0.0;
         switch (opCode) {
             case 'a' -> this.result = leftVal + rightVal;
