@@ -1,5 +1,7 @@
 package com.pluralsight.calcengine;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -16,22 +18,27 @@ public class Main {
         }
 
         if (args[0].equals("")) {
-            double[] leftVals = {100.0d, 25.0d, 225.0d, 11.0d};
-            double[] rightVals = {50.0d, 92.0d, 17.0d, 3.0d};
-            char[] opCodes = {'d', 'a', 's', 'm'};
-            double[] results = new double[opCodes.length];
-            for (int i = 0; i < opCodes.length; i++){
-                results[i] = execute(opCodes[i], leftVals[i], rightVals[i]);
+
+            MathEquation[] equations = new MathEquation[4];
+            equations[0] = create(100.0d, 50.0d, 'd');
+            equations[1] = create(25.0d, 92.0d, 'a');
+            equations[2] = create(225.0d, 17.0d, 's');
+            equations[3] = create(11.0d, 3.0d, 'm');
+
+            for (MathEquation equation: equations) {
+                equation.execute();
+                System.out.println("Result = " + equation.result);
             }
-            for (double i : results) {
-                System.out.println(i);
-            }
+
         } else if (args.length == 3) {
             //double result = execute ( args[0].charAt(0), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
             double result = handleCommandLine(args);
             System.out.println(result);
         } else if (args.length == 1 && args[0].equals("interactive")) {
                 executeInteractively();
+        } else if (args.length == 1 && args[0].equals("date")){
+            dateInteractive();
+
         } else if (args.length == 2 && args[0].equals("binary")) {
             binaryInteractive();
         }
@@ -46,6 +53,29 @@ public class Main {
 //        float total = (totalAmount[totalAmount.length - 1]).setScale(2, RoundingMode.CEILING);
         //System.out.println("Total amount is : " + totalAmount[totalAmount.length - 1]);
 
+    }
+
+    private static MathEquation create(double leftVal, double rightVal, char opCode) {
+        MathEquation equation = new MathEquation();
+        equation.leftVal = leftVal;
+        equation.rightVal = rightVal;
+        equation.opCode = opCode;
+        return equation;
+    }
+
+    private static void dateInteractive() {
+        LocalDate today = LocalDate.now();
+        System.out.println(today);
+
+        DateTimeFormatter usDateFormat = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        System.out.println(today.format(usDateFormat));
+
+        System.out.println("Please enter a date: ");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+
+        LocalDate theDate = LocalDate.parse(userInput, usDateFormat);
+        System.out.println("theDate :" + theDate);
     }
 
     private static void binaryInteractive() {
@@ -79,10 +109,27 @@ public class Main {
 
     private static void performOperation(String[] parts) {
         char opCode = opCodeFromString(parts[0]);
+
+        if (opCode == 'w') {
+            handleWhen(parts);
+        } else {
         double leftVal = valueFromString(parts[1]);
         double rightVal = valueFromString(parts[2]);
         double result = execute(opCode, leftVal, rightVal);
         displayResult(opCode, leftVal, rightVal, result);
+        }
+    }
+
+    private static void handleWhen(String[] parts) {
+
+        LocalDate startDate = LocalDate.parse(parts[1]);
+        long daysToAdd = (long) valueFromString(parts[2]);
+        LocalDate newDate = startDate.plusDays(daysToAdd);
+
+        //String formatting
+        String output = String.format("%s plus %d days is %s", startDate, daysToAdd, newDate);
+        System.out.println(output);
+
     }
 
     private static void displayResult(char opCode, double leftVal, double rightVal, double result) {
