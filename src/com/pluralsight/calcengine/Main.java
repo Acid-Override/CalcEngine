@@ -13,7 +13,7 @@ public class Main {
         int[] test = {2, 4, 11, 3};
         int tar = 6;
 
-        twoSum(test, tar);
+        //twoSum(test, tar);
 
 
         System.out.println("Please enter a command or nothing for example calc. (ex: Multiply two nine or interactive or binary search)");
@@ -29,15 +29,24 @@ public class Main {
 
         if (args[0].equals("")) {
 
+//            Calculator test1 = new Calculator('+', 20, 20);
+//            test1.calcResult();
+//            test1.printResult();
+//            test1.setAllInstances();
+//            test1.setAllInstances();
+//            Calculator test2 = new Calculator('-', 20, 10);
+//            test2.getAllInstances();
+
             MathEquation[] equations = new MathEquation[4];
-            equations[0] = create(100.0d, 50.0d, 'd');
-            equations[1] = create(25.0d, 92.0d, 'a');
-            equations[2] = create(225.0d, 17.0d, 's');
-            equations[3] = create(11.0d, 3.0d, 'm');
+            equations[0] = new MathEquation('d',100.0d, 50.0d);
+            equations[1] = new MathEquation('a', 25.0d, 92.0d);
+            equations[2] = new MathEquation('s', 225.0d, 17.0d);
+            equations[3] = new MathEquation('m',11.0d, 3.0d);
 
             for (MathEquation equation: equations) {
                 equation.execute();
-                System.out.println("Result = " + equation.result + " and counter is currently: " + equation.counter);
+                System.out.println("Result = " + equation.getResult() );
+                System.out.println("Average Total = " + MathEquation.getAvgTotal());
             }
 
         } else if (args.length == 3) {
@@ -65,13 +74,18 @@ public class Main {
 
     }
 
-    private static MathEquation create(double leftVal, double rightVal, char opCode) {
-        MathEquation equation = new MathEquation();
-        equation.leftVal = leftVal;
-        equation.rightVal = rightVal;
-        equation.opCode = opCode;
-        return equation;
-    }
+    //This is no longer needed since Constructor will now be doing the work.
+
+//    private static MathEquation create(double leftVal, double rightVal, char opCode) {
+//        MathEquation equation = new MathEquation();  // Uses default constructor
+////        equation.leftVal = leftVal;
+////        equation.rightVal = rightVal;
+////        equation.opCode = opCode;
+//        equation.setLeftVal(leftVal);
+//        equation.setRightVal(rightVal);
+//        equation.setOpCode(opCode);
+//        return equation;
+//    }
 
     private static void dateInteractive() {
         LocalDate today = LocalDate.now();
@@ -184,11 +198,11 @@ public class Main {
     static double execute(char opCode, double leftVal, double rightVal){
         double result = 0.0;
         switch (opCode) {
-            case 'a' -> result = leftVal + rightVal;
-            case 's' -> result = leftVal - rightVal;
-            case 'm' -> result = leftVal * rightVal;
-            case 'd' -> result = rightVal != 0 ? leftVal / rightVal : 0.0d;
-            default -> System.out.println("Invalid letter: " + opCode);
+            case 'a' : result = leftVal + rightVal;break;
+            case 's' : result = leftVal - rightVal;break;
+            case 'm' : result = leftVal * rightVal;break;
+            case 'd' : result = rightVal != 0 ? leftVal / rightVal : 0.0d;break;
+            default : System.out.println("Invalid letter: " + opCode);
         }
         return result;
     }
