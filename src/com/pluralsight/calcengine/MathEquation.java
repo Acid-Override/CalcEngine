@@ -9,8 +9,7 @@ public class MathEquation {
 
     //get back the average result from a series of calculations across all instances
     private static int numOfCalculations;
-    private static double sumTotal;
-    private static double avgTotal;
+    private static double sumOfResults;
 
 
     public MathEquation() {}  //default Constructor, created automatically for us
@@ -36,11 +35,37 @@ public class MathEquation {
             default : System.out.println("Invalid letter: " + opCode);
         }
         numOfCalculations++;
-        sumTotal += this.result;
+        sumOfResults += this.result;
         //avgTotal =sumTotal/numOfCalculations;
     }
 
+    public void execute(double leftVal, double rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+                execute();
+    }
 
+    public void execute(int leftVal, int rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+        execute();
+        result = (int) result;
+    }
+
+
+    // GETTERS
+    public double getLeftVal() {
+        return leftVal;
+    }
+    public double getRightVal() {
+        return rightVal;
+    }
+    public double getResult() {
+        return result;
+    }
+    public static double getAvgResult() {
+        return sumOfResults /numOfCalculations;
+    }
     // SETTERS
     public void setLeftVal(double leftVal) {
         this.leftVal = leftVal;
@@ -54,12 +79,5 @@ public class MathEquation {
         this.opCode = opCode;
     }
 
-    // GETTERS
-    public double getResult() {
-        return result;
-    }
 
-    public static double getAvgTotal() {
-        return sumTotal/numOfCalculations;
-    }
 }

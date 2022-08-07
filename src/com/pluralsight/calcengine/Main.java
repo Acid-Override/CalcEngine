@@ -8,7 +8,11 @@ import static com.pluralsight.calcengine.Solution.twoSum;
 
 public class Main {
     public static void main(String[] zargs) {
+        performCalculations();
 
+    }
+
+    public static void performCalculations() {
         //[2,7,11,15], target = 9
         int[] test = {2, 4, 11, 3};
         int tar = 6;
@@ -20,7 +24,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         String[] args = userInput.split(" ");
-
 
 
         for (String arg : args) {
@@ -38,33 +41,48 @@ public class Main {
 //            test2.getAllInstances();
 
             MathEquation[] equations = new MathEquation[4];
-            equations[0] = new MathEquation('d',100.0d, 50.0d);
+            equations[0] = new MathEquation('d', 100.0d, 50.0d);
             equations[1] = new MathEquation('a', 25.0d, 92.0d);
             equations[2] = new MathEquation('s', 225.0d, 17.0d);
-            equations[3] = new MathEquation('m',11.0d, 3.0d);
+            equations[3] = new MathEquation('m', 11.0d, 3.0d);
 
-            for (MathEquation equation: equations) {
+            for (MathEquation equation : equations) {
                 equation.execute();
-                System.out.println("Result = " + equation.getResult() );
-                System.out.println("Average Total = " + MathEquation.getAvgTotal());
+                System.out.println("Result = " + equation.getResult());
+                System.out.println("Average Total = " + MathEquation.getAvgResult());
             }
+
+            MathEquation equationOverload = new MathEquation('d');
+            double leftDouble = 9.0d;
+            double rightDouble = 4.0d;
+            equationOverload.execute(leftDouble, rightDouble);
+
+            System.out.println("Overload results = " + equationOverload.getResult());
+
+            System.out.println("Using Int conversion with Overlaod");
+
+            int leftInt = 9;
+            int rightInt = 4;
+            //MathEquation equationConversion = new MathEquation('a');
+            //equationConversion.execute(leftInt, rightInt);
+            equationOverload.execute(leftInt, rightInt);
+            System.out.println("Conversion = " + equationOverload.getResult());
+
 
         } else if (args.length == 3) {
             //double result = execute ( args[0].charAt(0), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
             double result = handleCommandLine(args);
             System.out.println(result);
         } else if (args.length == 1 && args[0].equals("interactive")) {
-                executeInteractively();
-        } else if (args.length == 1 && args[0].equals("date")){
+            executeInteractively();
+        } else if (args.length == 1 && args[0].equals("date")) {
             dateInteractive();
 
         } else if (args.length == 2 && args[0].equals("binary")) {
             binaryInteractive();
-        }
-        else {
+        } else {
             System.out.println("Please provide an operation code and two numeric values.");
         }
-
 
 
         //Factorial.factorial();
@@ -113,7 +131,7 @@ public class Main {
 
         int total = end - start + 1;
         int[] arr = new int[total];
-        for (int i = 0; i < total; i++ ) {
+        for (int i = 0; i < total; i++) {
             arr[i] = start++;
         }
         int searchResult = BinarySearch.search(arr, target);
@@ -122,7 +140,7 @@ public class Main {
         System.out.println("Recursive Binary Search : " + result);
     }
 
-    static void executeInteractively () {
+    static void executeInteractively() {
         System.out.println("Please enter a modifier and two numbers: ");
         Scanner sc = new Scanner(System.in);
         String userInput = sc.nextLine(); //gather all input from user until they hit enter
@@ -137,10 +155,10 @@ public class Main {
         if (opCode == 'w') {
             handleWhen(parts);
         } else {
-        double leftVal = valueFromString(parts[1]);
-        double rightVal = valueFromString(parts[2]);
-        double result = execute(opCode, leftVal, rightVal);
-        displayResult(opCode, leftVal, rightVal, result);
+            double leftVal = valueFromString(parts[1]);
+            double rightVal = valueFromString(parts[2]);
+            double result = execute(opCode, leftVal, rightVal);
+            displayResult(opCode, leftVal, rightVal, result);
         }
     }
 
@@ -177,7 +195,7 @@ public class Main {
         char[] symbols = {'+', '-', '*', '/'};
         char symbol = ' ';
 
-        for ( int i = 0; i < opCodes.length; i++ ) {
+        for (int i = 0; i < opCodes.length; i++) {
             if (opCode == opCodes[i]) {
                 symbol = symbols[i];
                 break;
@@ -195,26 +213,37 @@ public class Main {
         return result;
     }
 
-    static double execute(char opCode, double leftVal, double rightVal){
+    static double execute(char opCode, double leftVal, double rightVal) {
         double result = 0.0;
         switch (opCode) {
-            case 'a' : result = leftVal + rightVal;break;
-            case 's' : result = leftVal - rightVal;break;
-            case 'm' : result = leftVal * rightVal;break;
-            case 'd' : result = rightVal != 0 ? leftVal / rightVal : 0.0d;break;
-            default : System.out.println("Invalid letter: " + opCode);
+            case 'a':
+                result = leftVal + rightVal;
+                break;
+            case 's':
+                result = leftVal - rightVal;
+                break;
+            case 'm':
+                result = leftVal * rightVal;
+                break;
+            case 'd':
+                result = rightVal != 0 ? leftVal / rightVal : 0.0d;
+                break;
+            default:
+                System.out.println("Invalid letter: " + opCode);
         }
         return result;
     }
-    static char opCodeFromString(String operationName ){
+
+    static char opCodeFromString(String operationName) {
         return operationName.toLowerCase().charAt(0);
     }
-    static double valueFromString(String str){
+
+    static double valueFromString(String str) {
         String[] stringOfValues = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
-        double value = -1d ;
-        for ( int i = 0; i < stringOfValues.length; i++ ) {
-            if ( str.equals(stringOfValues[i])) {
+        double value = -1d;
+        for (int i = 0; i < stringOfValues.length; i++) {
+            if (str.equals(stringOfValues[i])) {
                 value = i;
                 break;
             }
@@ -224,4 +253,6 @@ public class Main {
         }
         return value;
     }
+
+
 }
