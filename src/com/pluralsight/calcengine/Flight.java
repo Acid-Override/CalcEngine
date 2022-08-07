@@ -6,18 +6,24 @@ public class Flight {
 
     //both class AND constructor must be public
     private int passengers;
-    private int seats;
+    private int seats = 150;
+
+    private static int allPassengers;  //will default to 0
 
     public Flight() {}
 
     public void add1Passenger() {
-        if ( passengers < seats)
-          passengers++;
-        else handleTooMany();
+        if ( passengers < seats) {
+            passengers++;
+            allPassengers++;
+        } else handleTooMany();
     }
 
     private void handleTooMany() {
         System.out.println("Too many passengers");
+    }
+    public static int getAllPassengers() {
+        return allPassengers;
     }
 
 }
