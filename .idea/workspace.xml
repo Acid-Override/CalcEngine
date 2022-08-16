@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_27_22,_11_56_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_27_22__11_56_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/SpinWords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MathEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MathEquation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,17 @@
       </RepoCoordinatesHolder>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Arrays.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearch.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BlockStatement.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateInterest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Factorial.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/FizzBuzz.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/ForLoop.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Students.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -63,9 +74,9 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;copyright.filetypes.JAVA&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.BinarySearch" />
+  <component name="RunManager" selected="Application.com.pluralsight.calcengine.SpinWords">
+    <configuration name="com.pluralsight.calcengine.BinaryArrayToNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.BinaryArrayToNumber" />
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
@@ -77,20 +88,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FizzBuzz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.FizzBuzz" />
-      <module name="CalcEngine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ForLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.pluralsight.calcengine.ForLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ForLoop" />
       <module name="CalcEngine" />
       <extension name="coverage">
@@ -103,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.pluralsight.calcengine.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
       <module name="CalcEngine" />
@@ -118,7 +116,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StringEquality" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.pluralsight.calcengine.SpinWords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.SpinWords" />
+      <module name="CalcEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.pluralsight.calcengine.StringEquality" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.StringEquality" />
       <module name="CalcEngine" />
       <extension name="coverage">
@@ -132,19 +143,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.BinarySearch" />
-      <item itemvalue="Application.FizzBuzz" />
-      <item itemvalue="Application.ForLoop" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.StringEquality" />
+      <item itemvalue="Application.com.pluralsight.calcengine.BinaryArrayToNumber" />
+      <item itemvalue="Application.com.pluralsight.calcengine.ForLoop" />
+      <item itemvalue="Application.com.pluralsight.calcengine.Main" />
+      <item itemvalue="Application.com.pluralsight.calcengine.SpinWords" />
+      <item itemvalue="Application.com.pluralsight.calcengine.StringEquality" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.StringEquality" />
-        <item itemvalue="Application.ForLoop" />
-        <item itemvalue="Application.FizzBuzz" />
-        <item itemvalue="Application.BinarySearch" />
+        <item itemvalue="Application.com.pluralsight.calcengine.SpinWords" />
+        <item itemvalue="Application.com.pluralsight.calcengine.BinaryArrayToNumber" />
+        <item itemvalue="Application.com.pluralsight.calcengine.Main" />
+        <item itemvalue="Application.com.pluralsight.calcengine.StringEquality" />
+        <item itemvalue="Application.com.pluralsight.calcengine.ForLoop" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +174,14 @@
       <workItem from="1659307501626" duration="4196000" />
       <workItem from="1659357316891" duration="9264000" />
       <workItem from="1659531111187" duration="11356000" />
+      <workItem from="1660187152874" duration="2581000" />
+      <workItem from="1660223109926" duration="338000" />
+      <workItem from="1660223541464" duration="593000" />
+      <workItem from="1660224753836" duration="598000" />
+      <workItem from="1660228954351" duration="8356000" />
+      <workItem from="1660317931110" duration="597000" />
+      <workItem from="1660327755147" duration="2535000" />
+      <workItem from="1660566588804" duration="8153000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -334,6 +353,26 @@
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/TwoSum.java</url>
           <line>10</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/SpinWords.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,12 +4,51 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import static com.pluralsight.calcengine.Solution.twoSum;
-
 public class Main {
     public static void main(String[] zargs) {
-        performCalculations();
+        //performCalculations();
+        int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
 
+        final String string = "ha";
+        Object object = new Object() {
+            @Override
+            public String toString() {
+                return string;
+            }
+        };
+        String result1 = string + null;
+
+        long a = 2147483648L;
+        // What happens if we force a long value into an int?
+        int b = (int) a;
+        System.out.println(b);
+
+
+        int count = 0;
+        outerLabel:
+        for (int i = 0; i < 6; i++ ) {
+            for ( int j = 0; j < 6; j++){
+                count++;
+                if ( count > 2) {
+                    System.out.println("Here");
+                    continue outerLabel;
+                }
+            }
+            count += 10;
+        }
+        System.out.println(count);
+
+
+        Object obj1 = new Integer(4);
+        Object obj2 = new Integer(2+2);
+       if (obj1.equals(obj2)) {
+           System.out.println("equal");
+       }
+       Object test = new Object();
+        System.out.println(test);
+        if(new Object().equals(null)) {
+            System.out.println("line 20");
+        }
     }
 
     public static void performCalculations() {
