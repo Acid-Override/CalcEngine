@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] zargs) {
         //performCalculations();
-        int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
+        //int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
 
         final String string = "ha";
         Object object = new Object() {
