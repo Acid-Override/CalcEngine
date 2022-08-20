@@ -26,13 +26,15 @@ public class MathEquation {
     }
 
     void execute() {
-        double result = 0.0;
+
         switch (opCode) {
             case 'a' : this.result = leftVal + rightVal; break;
             case 's' : this.result = leftVal - rightVal; break;
             case 'm' : this.result = leftVal * rightVal; break;
             case 'd' : this.result = rightVal != 0 ? leftVal / rightVal : 0.0d; break;
             default : System.out.println("Invalid letter: " + opCode);
+            result = 0.0d;
+            break;
         }
         numOfCalculations++;
         sumOfResults += this.result;
