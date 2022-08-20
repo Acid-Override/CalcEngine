@@ -5,53 +5,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] zargs) {
+    public static void main(String[] args) {
         //performCalculations();
         //int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
 
-        final String string = "ha";
-        Object object = new Object() {
-            @Override
-            public String toString() {
-                return string;
-            }
-        };
-        String result1 = string + null;
+        //Adder add1 = new Adder();
+        doCalculation(new Divider(), 100.0d, 50.0d);
+        doCalculation(new Adder(), 25.0d, 92.0d);
+        doCalculation(new Subtractor(), 225.0d, 17.0d);
+        doCalculation(new Multiplier(), 11.0d, 3.0d);
 
-        long a = 2147483648L;
-        // What happens if we force a long value into an int?
-        int b = (int) a;
-        System.out.println(b);
-
-
-        int count = 0;
-        outerLabel:
-        for (int i = 0; i < 6; i++ ) {
-            for ( int j = 0; j < 6; j++){
-                count++;
-                if ( count > 2) {
-                    System.out.println("Here");
-                    continue outerLabel;
-                }
-            }
-            count += 10;
-        }
-        System.out.println(count);
-
-
-        Object obj1 = new Integer(4);
-        Object obj2 = new Integer(2+2);
-       if (obj1.equals(obj2)) {
-           System.out.println("equal");
-       }
-       Object test = new Object();
-        System.out.println(test);
-        if(new Object().equals(null)) {
-            System.out.println("line 20");
-        }
     }
 
-    public static void performCalculations() {
+    static void doCalculation(CalculateBase calculation, double leftVal, double rightVal) {
+
+        calculation.setLeftVal(leftVal);
+        calculation.setRightVal(rightVal);
+        calculation.calculate();
+        System.out.println(calculation.getResult());
+
+    }
+
+    static void performCalculations() {
         //[2,7,11,15], target = 9
         int[] test = {2, 4, 11, 3};
         int tar = 6;
