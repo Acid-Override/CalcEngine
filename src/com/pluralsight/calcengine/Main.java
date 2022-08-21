@@ -9,6 +9,19 @@ public class Main {
         //performCalculations();
         //int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
 
+        //StaticInitializerTest st = new StaticInitializerTest();
+        ExtendedStaticInitializerTest est = new ExtendedStaticInitializerTest();
+        est.setSomeFieldValue(42);
+        System.out.println("GetSomeFieldValue " + est.getSomeFieldValue());
+        est.someFunction();
+
+        Object o = new ExtendedStaticInitializerTest();
+        if ( o instanceof StaticInitializerTest) {
+            ExtendedStaticInitializerTest aext = (ExtendedStaticInitializerTest) o;
+            aext.someFunction();
+        }
+
+
         //Adder add1 = new Adder();
         doCalculation(new Divider(), 100.0d, 50.0d);
         doCalculation(new Adder(), 25.0d, 92.0d);
