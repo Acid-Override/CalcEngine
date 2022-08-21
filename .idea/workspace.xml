@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Junit Testing for SpinWords">
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Adder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/CalculateBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Divider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/HowManyNumbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MaxMirror.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MaxMirrorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Multiplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/SpinWordsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/StringSplit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/StringSplitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Subtractor.java" afterDir="false" />
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ExtendedStaticInitializerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/StaticInitializerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MathEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/MathEquation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +97,21 @@
       <recent name="com.pluralsight.calcengine" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MaxMirrorTest.maxMirror">
-    <configuration name="HowManyNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.ArrayListExample">
+    <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ArrayListExample" />
+      <module name="CalcEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.pluralsight.calcengine.HowManyNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.HowManyNumbers" />
       <module name="CalcEngine" />
       <extension name="coverage">
@@ -120,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.pluralsight.calcengine.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
       <module name="CalcEngine" />
       <extension name="coverage">
@@ -133,7 +137,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaxMirror" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.pluralsight.calcengine.MaxMirror" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.MaxMirror" />
       <module name="CalcEngine" />
       <extension name="coverage">
@@ -162,36 +166,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpinWordsTest.spinWords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CalcEngine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.pluralsight.calcengine" />
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.SpinWordsTest" />
-      <option name="METHOD_NAME" value="spinWords" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.HowManyNumbers" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.MaxMirror" />
+      <item itemvalue="Application.ArrayListExample" />
+      <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
+      <item itemvalue="Application.com.pluralsight.calcengine.Main" />
+      <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
       <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
-      <item itemvalue="JUnit.SpinWordsTest.spinWords" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArrayListExample" />
+        <item itemvalue="Application.com.pluralsight.calcengine.Main" />
         <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.HowManyNumbers" />
-        <item itemvalue="Application.MaxMirror" />
-        <item itemvalue="JUnit.SpinWordsTest.spinWords" />
+        <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
+        <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
       </list>
     </recent_temporary>
   </component>
@@ -441,7 +429,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
-          <line>13</line>
+          <line>26</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
