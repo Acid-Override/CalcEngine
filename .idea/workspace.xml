@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ExtendedStaticInitializerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/StaticInitializerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +96,7 @@
       <recent name="com.pluralsight.calcengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ArrayListExample">
+  <component name="RunManager" selected="Application.com.pluralsight.calcengine.Main">
     <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ArrayListExample" />
       <module name="CalcEngine" />
@@ -175,8 +174,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArrayListExample" />
         <item itemvalue="Application.com.pluralsight.calcengine.Main" />
+        <item itemvalue="Application.ArrayListExample" />
         <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
         <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
         <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
@@ -347,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660690607218</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Extending classes and ArrayList example">
+      <created>1661121117867</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1661121117868</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +390,8 @@
     <MESSAGE value="Chapter four complete" />
     <MESSAGE value="SpinWords and BinaryToNumber" />
     <MESSAGE value="Junit Testing for SpinWords" />
-    <option name="LAST_COMMIT_MESSAGE" value="Junit Testing for SpinWords" />
+    <MESSAGE value="Extending classes and ArrayList example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extending classes and ArrayList example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -429,7 +436,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
-          <line>26</line>
+          <line>31</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
