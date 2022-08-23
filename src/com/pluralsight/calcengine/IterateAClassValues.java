@@ -14,4 +14,8 @@ public enum IterateAClassValues {
     IterateAClassValues(String interateAClassValues) {
         this.interateAClassValues = interateAClassValues;
     }
+
+    public String getInterateAClassValues() {
+        return interateAClassValues;
+    }
 }
