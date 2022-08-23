@@ -9,6 +9,11 @@ public class Main {
         //performCalculations();
         //int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
 
+        //iterate enum
+        for ( IterateAClassValues iterateAClassValues : IterateAClassValues.values()) {
+            System.out.println(iterateAClassValues);
+        }
+
         //StaticInitializerTest st = new StaticInitializerTest();
         ExtendedStaticInitializerTest est = new ExtendedStaticInitializerTest();
         est.setSomeFieldValue(42);
