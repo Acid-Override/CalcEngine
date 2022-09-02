@@ -4,6 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="added getter to Enum">
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" afterDir="false" />
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
       <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ExtendedStaticInitializerTest.java" afterDir="false" />
