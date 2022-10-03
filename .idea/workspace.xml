@@ -7,11 +7,11 @@
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="added getter to Enum">
       <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" afterDir="false" />
     <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ExtendedStaticInitializerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/StaticInitializerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearchTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/leetcode/Distance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/leetcode/DistanceSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +99,9 @@
       <recent name="com.pluralsight.calcengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ArrayListExample">
-    <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ArrayListExample" />
+  <component name="RunManager" selected="Application.BinarySearchTree">
+    <configuration name="BinarySearchTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.BinarySearchTree" />
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
@@ -113,46 +113,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.pluralsight.calcengine.HowManyNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.HowManyNumbers" />
-      <module name="CalcEngine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.pluralsight.calcengine.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
-      <module name="CalcEngine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.pluralsight.calcengine.MaxMirror" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.MaxMirror" />
-      <module name="CalcEngine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MaxMirrorTest.maxMirror" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTree.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
@@ -161,27 +122,72 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.pluralsight.calcengine" />
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.MaxMirrorTest" />
-      <option name="METHOD_NAME" value="maxMirror" />
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.BinarySearchTree" />
+      <option name="METHOD_NAME" value="firstTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DistanceSet (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.calcengine.leetcode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pluralsight.calcengine.leetcode" />
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.leetcode.DistanceSet" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DistanceSet (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.calcengine.leetcode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pluralsight.calcengine.leetcode" />
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.leetcode.DistanceSet" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DistanceSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.calcengine.leetcode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pluralsight.calcengine.leetcode" />
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.leetcode.DistanceSet" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.ArrayListExample" />
-      <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
-      <item itemvalue="Application.com.pluralsight.calcengine.Main" />
-      <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
-      <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
+      <item itemvalue="Application.BinarySearchTree" />
+      <item itemvalue="JUnit.BinarySearchTree.firstTest" />
+      <item itemvalue="JUnit.DistanceSet" />
+      <item itemvalue="JUnit.DistanceSet (1)" />
+      <item itemvalue="JUnit.DistanceSet (2)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArrayListExample" />
-        <item itemvalue="Application.com.pluralsight.calcengine.Main" />
-        <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
-        <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
-        <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
+        <item itemvalue="Application.BinarySearchTree" />
+        <item itemvalue="JUnit.BinarySearchTree.firstTest" />
+        <item itemvalue="JUnit.DistanceSet" />
+        <item itemvalue="JUnit.DistanceSet (2)" />
+        <item itemvalue="JUnit.DistanceSet (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +214,8 @@
       <workItem from="1660317931110" duration="597000" />
       <workItem from="1660327755147" duration="2535000" />
       <workItem from="1660566588804" duration="8153000" />
+      <workItem from="1662468614217" duration="12936000" />
+      <workItem from="1662933059769" duration="7716000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -349,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660690607218</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Extending classes and ArrayList example">
+      <created>1661121117867</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1661121117868</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,53 +401,21 @@
     <MESSAGE value="Chapter four complete" />
     <MESSAGE value="SpinWords and BinaryToNumber" />
     <MESSAGE value="Junit Testing for SpinWords" />
-    <option name="LAST_COMMIT_MESSAGE" value="Junit Testing for SpinWords" />
+    <MESSAGE value="Extending classes and ArrayList example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extending classes and ArrayList example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/TwoSum.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/leetcode/DistanceSet.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/SpinWords.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumberTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumber.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumber.java</url>
-          <line>38</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/MaxMirror.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/HowManyNumbers.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearchTree.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
