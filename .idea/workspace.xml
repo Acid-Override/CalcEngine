@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Chapter four complete">
-      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" afterDir="false" />
+    <list default="true" id="bb79a97f-bd69-4698-b8e7-4dd2646da219" name="Changes" comment="Binary Search Tree">
+      <change afterPath="$PROJECT_DIR$/src/com/Baeldung/CountChars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/AbstractClassesExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ExtendsExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GettersAndSetters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/HashMapExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/HowManyWords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/LambdaExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ScratchPad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/iterateAnotherClassValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kata/kyu1/kyu1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kata/kyu5/Scramble.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kata/kyu5/ScrambleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kata/kyu6/GrabScrab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kata/kyu6/GrabScrabTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/ArrayListExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalcEngine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CalcEngine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -93,12 +109,14 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="kata.kyu6" />
+      <recent name="kata.kyu5" />
       <recent name="com.pluralsight.calcengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.pluralsight.calcengine.Main">
-    <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ArrayListExample" />
+  <component name="RunManager" selected="JUnit.GrabScrabTest.grabScrab">
+    <configuration name="ScratchPad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ScratchPad" />
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
@@ -110,75 +128,84 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.pluralsight.calcengine.HowManyNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.HowManyNumbers" />
+    <configuration name="GrabScrabTest.grabScrab" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="PATTERN" value="kata.kyu6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="kata.kyu6" />
+      <option name="MAIN_CLASS_NAME" value="kata.kyu6.GrabScrabTest" />
+      <option name="METHOD_NAME" value="grabScrab" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.pluralsight.calcengine.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.Main" />
+    <configuration name="ScrambleTest.codeWarsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="PATTERN" value="kata.kyu5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="kata.kyu5" />
+      <option name="MAIN_CLASS_NAME" value="kata.kyu5.ScrambleTest" />
+      <option name="METHOD_NAME" value="codeWarsTests" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.pluralsight.calcengine.MaxMirror" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.MaxMirror" />
+    <configuration name="ScrambleTest.deletemeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="PATTERN" value="kata.kyu5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="kata.kyu5" />
+      <option name="MAIN_CLASS_NAME" value="kata.kyu5.ScrambleTest" />
+      <option name="METHOD_NAME" value="deletemeTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaxMirrorTest.maxMirror" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScrambleTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pluralsight.calcengine.*" />
+          <option name="PATTERN" value="kata.kyu5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.pluralsight.calcengine" />
-      <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.MaxMirrorTest" />
-      <option name="METHOD_NAME" value="maxMirror" />
+      <option name="PACKAGE_NAME" value="kata.kyu5" />
+      <option name="MAIN_CLASS_NAME" value="kata.kyu5.ScrambleTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ArrayListExample" />
-      <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
-      <item itemvalue="Application.com.pluralsight.calcengine.Main" />
-      <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
-      <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
+      <item itemvalue="Application.ScratchPad" />
+      <item itemvalue="JUnit.GrabScrabTest.grabScrab" />
+      <item itemvalue="JUnit.ScrambleTest.codeWarsTests" />
+      <item itemvalue="JUnit.ScrambleTest.deletemeTest" />
+      <item itemvalue="JUnit.ScrambleTest.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.pluralsight.calcengine.Main" />
-        <item itemvalue="Application.ArrayListExample" />
-        <item itemvalue="JUnit.MaxMirrorTest.maxMirror" />
-        <item itemvalue="Application.com.pluralsight.calcengine.HowManyNumbers" />
-        <item itemvalue="Application.com.pluralsight.calcengine.MaxMirror" />
+        <item itemvalue="JUnit.GrabScrabTest.grabScrab" />
+        <item itemvalue="Application.ScratchPad" />
+        <item itemvalue="JUnit.ScrambleTest.deletemeTest" />
+        <item itemvalue="JUnit.ScrambleTest.test" />
+        <item itemvalue="JUnit.ScrambleTest.codeWarsTests" />
       </list>
     </recent_temporary>
   </component>
@@ -205,6 +232,15 @@
       <workItem from="1660317931110" duration="597000" />
       <workItem from="1660327755147" duration="2535000" />
       <workItem from="1660566588804" duration="8153000" />
+      <workItem from="1663098771270" duration="598000" />
+      <workItem from="1663169232637" duration="598000" />
+      <workItem from="1663255139676" duration="943000" />
+      <workItem from="1663272380275" duration="9455000" />
+      <workItem from="1663593420210" duration="31406000" />
+      <workItem from="1663942623243" duration="111000" />
+      <workItem from="1663942825539" duration="112000" />
+      <workItem from="1663944924874" duration="1971000" />
+      <workItem from="1664287439646" duration="7869000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Setup">
       <created>1658778612064</created>
@@ -391,7 +427,8 @@
     <MESSAGE value="SpinWords and BinaryToNumber" />
     <MESSAGE value="Junit Testing for SpinWords" />
     <MESSAGE value="Extending classes and ArrayList example" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extending classes and ArrayList example" />
+    <MESSAGE value="Binary Search Tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="Binary Search Tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -439,6 +476,35 @@
           <line>31</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/HashMapExample.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/HashMapExample.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kata/kyu5/ScrambleTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kata/kyu5/Scramble.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kata/kyu6/GrabScrab.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="36" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

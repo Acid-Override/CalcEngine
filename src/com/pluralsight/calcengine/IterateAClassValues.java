@@ -8,14 +8,14 @@ public enum IterateAClassValues {
     Fourth("fourth"),
     Fifth("fifth");
 
-    private final String interateAClassValues;
+    private final String iterateACClassValues;
 
 
-    IterateAClassValues(String interateAClassValues) {
-        this.interateAClassValues = interateAClassValues;
+    IterateAClassValues(String iterateACClassValues) {
+        this.iterateACClassValues = iterateACClassValues;
     }
 
-    public String getInterateAClassValues() {
-        return interateAClassValues;
+    public String getIterateACClassValues() {
+        return iterateACClassValues;
     }
 }
