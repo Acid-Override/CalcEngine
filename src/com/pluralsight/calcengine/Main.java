@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //performCalculations();
-        //int result = BinaryArrayToNumber.convertBinaryArrayToNumber(new int[] {0, 0, 0, 1});
+        performCalculations();
+
 
         //iterate enum
         for ( IterateAClassValues iterateAClassValues : IterateAClassValues.values()) {
