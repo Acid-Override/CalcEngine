@@ -16,6 +16,7 @@ public class GrabScrab {
 //                    + Arrays.stream(word.split("")).sorted().collect(Collectors.joining("")));
 //            result.add(Arrays.stream(word.split("")).sorted().collect(Collectors.joining("")));
 //        }
+
         List<String> collect = dictionary.stream().filter((each) -> isPirateTranslation(letters, each)).collect(Collectors.toList());
         return collect;
     }
@@ -24,10 +25,7 @@ public class GrabScrab {
 
         if ( str1.length() != str2.length()) return false;
 
-        if (Arrays.stream(str1.split("")).sorted().collect(Collectors.joining(""))
-                .equals(Arrays.stream(str2.split("")).sorted().collect(Collectors.joining("")))) {
-            return true;
-        }
-        return false;
+        return (Arrays.stream(str1.split("")).sorted().collect(Collectors.joining(""))
+                .equals(Arrays.stream(str2.split("")).sorted().collect(Collectors.joining(""))));
     }
 }
