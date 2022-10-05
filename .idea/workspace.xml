@@ -24,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/GetHumanlyReadableFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/IterateAClassValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -434,47 +435,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/TwoSum.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/leetcode/DistanceSet.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/SpinWords.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumberTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumber.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinaryArrayToNumber.java</url>
-          <line>38</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/MaxMirror.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/HowManyNumbers.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/Main.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/BinarySearchTree.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/pluralsight/calcengine/HashMapExample.java</url>

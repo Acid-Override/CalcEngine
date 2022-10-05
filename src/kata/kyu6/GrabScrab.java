@@ -27,5 +27,6 @@ public class GrabScrab {
 
         return (Arrays.stream(str1.split("")).sorted().collect(Collectors.joining(""))
                 .equals(Arrays.stream(str2.split("")).sorted().collect(Collectors.joining(""))));
+
     }
 }
