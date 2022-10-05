@@ -16,7 +16,7 @@ public class GetHumanlyReadableFormat {
 
     public static void main(String[] args) {
         GetHumanlyReadableFormat gHRF = new GetHumanlyReadableFormat();
-
+  
 
 //        System.out.println(gHRF.getHumanlyReadableFormat(new Date()));
 //        System.out.println(gHRF.getHumanlyReadableFormat(Instant.now()));

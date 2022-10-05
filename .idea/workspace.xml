@@ -118,7 +118,6 @@
   <component name="RunManager" selected="JUnit.GrabScrabTest.grabScrab">
     <configuration name="ScratchPad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.calcengine.ScratchPad" />
-
       <module name="CalcEngine" />
       <extension name="coverage">
         <pattern>
