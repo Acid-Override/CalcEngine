@@ -27,7 +27,6 @@ public class CustomArrayList<D> {
         if ( elements.length == size) {
             increaseCapacity(item);
         }
-
     }
 
     private void increaseCapacity(D item) {
