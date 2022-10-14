@@ -6,6 +6,7 @@ package com.Baeldung;
 
 import org.apache.commons.lang3.StringUtils;
 
+
 public class CountChars {
 
     static String someString = "elephant";
@@ -22,8 +23,6 @@ public class CountChars {
 
         String reverseSomeString = StringUtils.reverse(someString);
         System.out.println(reverseSomeString + " " + someString);
-
-
 
     }
 
