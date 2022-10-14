@@ -27,13 +27,12 @@ public class CustomArrayList<D> {
         if ( elements.length == size) {
             increaseCapacity(item);
         }
-
     }
 
     private void increaseCapacity(D item) {
         int newSize = elements.length + 2;
-        elements = new Object[newSize];
-        Arrays.copyOf(elements, newSize);
+
+        elements = Arrays.copyOf(elements, newSize);
     }
 
     public int size() {
