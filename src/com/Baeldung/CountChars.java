@@ -4,7 +4,8 @@ package com.Baeldung;
 
 // import commons.lang.StringUtils;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
+
 
 
 public class CountChars {
@@ -18,11 +19,11 @@ public class CountChars {
         long count2 = someString.codePoints().filter(ch -> ch == 'e').count();
         System.out.println(count2);
 
-        int count3 = StringUtils.countMatches(someString, "e");
-        System.out.println(count3);
-
-        String reverseSomeString = StringUtils.reverse(someString);
-        System.out.println(reverseSomeString + " " + someString);
+//        int count3 = StringUtils.countMatches(someString, "e");
+//        System.out.println(count3);
+//
+//        String reverseSomeString = StringUtils.reverse(someString);
+//        System.out.println(reverseSomeString + " " + someString);
 
     }
 

@@ -1,6 +1,9 @@
 package kata.kyu5;
 
+import org.junit.Test;
 import org.junit.jupiter.api.*;
+import static org.junit.Assert.assertEquals;
+
 
 import static kata.kyu5.Scramble.scramble;
 import static org.junit.jupiter.api.Assertions.*;

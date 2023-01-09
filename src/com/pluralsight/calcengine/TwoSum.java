@@ -1,8 +1,8 @@
 package com.pluralsight.calcengine;
 
-class Solution {
+public class TwoSum {
 
-    public Solution() {
+    public TwoSum() {
         int i = 0;
     }
      public static int[] twoSum(int[] nums, int target) {
