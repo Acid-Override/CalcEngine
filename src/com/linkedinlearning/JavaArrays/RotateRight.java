@@ -13,12 +13,12 @@ public class RotateRight {
         Arrays.stream(arr).forEach(System.out::println);
 
         //index % length = new location
-        //5 % 5 = 0
-        //4 % 5 = 1
-        //3 % 5 = 2
-        //2 % 5 = 3
-        //1 % 5 = 4
-        //0 % 5 = 5
+        //5 % 5 =  0
+        //4 % 5 =  4
+        //3 % 5 =  3
+        //2 % 5 =  2
+        //1 % 5 =  1
+        //0 % 5 =  0
         // { 1, 2, 3, 4, 5}
         // { 5, 1, 2, 3, 4}
 
