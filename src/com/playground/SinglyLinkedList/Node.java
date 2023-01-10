@@ -1,4 +1,4 @@
-package com.playground;
+package com.playground.SinglyLinkedList;
 
 public class Node {
 

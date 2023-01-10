@@ -1,4 +1,4 @@
-package com.playground;
+package com.playground.SinglyLinkedList;
 
 import java.util.Objects;
 import java.util.logging.Level;
