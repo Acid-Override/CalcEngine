@@ -1,4 +1,4 @@
-package com.playground;
+package com.playground.SinglyLinkedList;
 
 import org.junit.jupiter.api.Test;
 
