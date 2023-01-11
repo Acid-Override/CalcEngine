@@ -66,11 +66,11 @@ public class BinarySearchTree {
         inorderScan(node.getRight());
     }
 
-    public Node search(Integer val) {
-        return inorderSearch(getRoot(), val);
+    public Node deleteLeaf(Integer val) {
+        return inorderSearchAndDeleteLeaf(getRoot(), val);
     }
 
-    private Node inorderSearch(Node node, Integer val) {
+    private Node inorderSearchAndDeleteLeaf(Node node, Integer val) {
         if(null == node)
             return null;
 
@@ -80,8 +80,10 @@ public class BinarySearchTree {
             return node;
         }
 
-        inorderSearch(node.getLeft(), val);
-        inorderSearch(node.getRight(), val);
+        if(null != inorderSearchAndDeleteLeaf(node.getLeft(), val))
+            node.setLeft(null);
+        if(null != inorderSearchAndDeleteLeaf(node.getRight(), val))
+            node.setRight(null);
 
         return null;
     }

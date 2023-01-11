@@ -66,6 +66,6 @@ public class BinarySearchTreeTest {
         bst.insert(55);
         bst.insert(70);
         bst.insert(65);
-        bst.search(35);
+        bst.deleteLeaf(35);
     }
 }
