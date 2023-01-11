@@ -1,12 +1,13 @@
 package com.playground.BinaryTree;
 
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BinarySearchTree {
 
     private Node root;
-    private Integer size;
+    private Integer size = 0;
 
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -26,28 +27,73 @@ public class BinarySearchTree {
         this.size = size;
     }
 
+    public void insert(Integer val)
+    {
+        this.root = add(getRoot(), val);
+    }
 
-
-
-    public void add(Node node, Integer val)
+    private Node add(Node node, Integer val)
     {
         if (null == node)
         {
-            setRoot(new Node(val));
-            logger.log(Level.INFO, "Creating a new BST {0}.", getRoot());
-            return;
+            Node newNode = new Node(val);
+            size++;
+            return newNode;
         }
         if (val > node.getValue())
         {
-            //insert at right node
-
-            add(node.getRight(), val);
-        } else
+            node.setRight(add(node.getRight(), val));
+        }
+        else
         {
-            //insert at left node
-            add(node.getLeft(), val);
+            node.setLeft(add(node.getLeft(), val));
         }
 
+        return node;
     }
+
+    public void printValues(){
+        inorderScan(getRoot());
+    }
+
+    private void inorderScan(Node node)
+    {
+        if(null == node){
+            return;
+        }
+        inorderScan(node.getLeft());
+        System.out.println(node.getValue());
+        inorderScan(node.getRight());
+    }
+
+    public Node search(Integer val) {
+        return inorderSearch(getRoot(), val);
+    }
+
+    private Node inorderSearch(Node node, Integer val) {
+        if(null == node)
+            return null;
+
+        if (Objects.equals(node.getValue(), val))
+        {
+            logger.log(Level.INFO, "You found the Value : {0}", node.toString());
+            return node;
+        }
+
+        inorderSearch(node.getLeft(), val);
+        inorderSearch(node.getRight(), val);
+
+        return null;
+    }
+
+
+    @Override
+    public String toString() {
+        return "BinarySearchTree{" +
+                "root=" + root +
+                ", size=" + size +
+                '}';
+    }
+
 
 }
