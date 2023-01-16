@@ -1,13 +1,17 @@
 package com.playground.BinaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class BinarySearchTree {
 
     private Node root;
     private Integer size = 0;
+    private List<Integer> leaves = new ArrayList<>();
 
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -88,6 +92,50 @@ public class BinarySearchTree {
         return null;
     }
 
+    public void createATree(List<Integer> numbers)
+    {
+        numbers.forEach(System.out::println);
+        numbers = numbers.stream().sorted().collect(Collectors.toList());
+        numbers.forEach(System.out::println);
+    }
+
+    public int sumLeaves(){
+        buildLeafList(getRoot());
+        System.out.println(leaves.toString());
+        return leaves.stream().reduce(0, Integer::sum);
+    }
+
+    public Node buildLeafList(Node node) {
+
+        if (null == node)
+            return null;
+
+        if(node.getLeft() == null && node.getRight() == null) {
+            leaves.add(node.getValue());
+            return null;
+        }
+        buildLeafList(node.getLeft());
+        buildLeafList(node.getRight());
+
+        return null;
+    }
+
+    public Integer sum(){
+        return sumAllNodes(getRoot());
+    }
+    private Integer sumAllNodes(Node node) {
+        Integer result = 0;
+
+        if(null == node)
+            return 0;
+
+        result += sumAllNodes(node.getLeft());
+        result += node.getValue();
+        result += sumAllNodes(node.getRight());
+
+        return result;
+
+    }
 
     @Override
     public String toString() {
@@ -96,6 +144,7 @@ public class BinarySearchTree {
                 ", size=" + size +
                 '}';
     }
+
 
 
 }
