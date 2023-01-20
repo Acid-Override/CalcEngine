@@ -134,7 +134,6 @@ public class BinarySearchTree {
         result += sumAllNodes(node.getRight());
 
         return result;
-
     }
 
     @Override
