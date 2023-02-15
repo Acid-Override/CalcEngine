@@ -1,4 +1,4 @@
-package com.DailyByte;
+package com.DailyByte.OrderedDigits;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
