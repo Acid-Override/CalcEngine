@@ -18,4 +18,10 @@ class EvenVowelTest {
         int result = ev.evaluateEvenVowelString();
         assertEquals(3, result);
     }
+    @Test
+    void evenVowelSubstringInit() {
+        EvenVowel ev = new EvenVowel();
+        int result = ev.evenVowelSubstring("aeiouaeiouae");
+        assertEquals(10, result);
+    }
 }
