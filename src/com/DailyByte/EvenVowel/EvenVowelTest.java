@@ -21,7 +21,28 @@ class EvenVowelTest {
     @Test
     void evenVowelSubstringInit() {
         EvenVowel ev = new EvenVowel();
-        int result = ev.evenVowelSubstring("aeiouaeiouae");
+        int result = ev.evenVowelSubstring("aeiouaeiouai");
         assertEquals(10, result);
+    }
+
+    @Test
+    void evenVowelSubstringCheck() {
+        EvenVowel ev = new EvenVowel("bbb", "aeiou");
+        int result = ev.evaluateEvenVowelString();
+        assertEquals(3, result);
+    }
+
+    @Test
+    void evenVowelSubstringNoVowels() {
+        EvenVowel eve = new EvenVowel();
+        int result = eve.evenVowelSubstring("bbbbb");
+
+    }
+
+    @Test
+    void evaluateOddVowelString() {
+        EvenVowel ev = new EvenVowel("aeio", "aeiou");
+        int result = ev.evaluateEvenVowelString();
+//        assertEquals(10, result);
     }
 }
