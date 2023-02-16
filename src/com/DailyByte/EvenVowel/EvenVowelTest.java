@@ -12,4 +12,10 @@ class EvenVowelTest {
         int result = ev.evaluateEvenVowelString();
         assertEquals(10, result);
     }
+    @Test
+    void evaluateNoVowelString() {
+        EvenVowel ev = new EvenVowel("bbb", "aeiou");
+        int result = ev.evaluateEvenVowelString();
+        assertEquals(3, result);
+    }
 }
