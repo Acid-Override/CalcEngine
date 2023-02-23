@@ -36,7 +36,7 @@ public class NodeSwap {
     }
 
     //flip every n
-    public Node flipper(Node head, int n) {
+    public Node flipper(Node head) {
         Node copy = new Node(-1);
         Node temp = copy;
 
@@ -50,7 +50,7 @@ public class NodeSwap {
         return copy.getNode();
     }
 
-    public Node nFlipper(Node head, int n) {
+    public Node flipper(Node head, int n) {
         Node copy = new Node(-1);
         Node temp = copy;
 
