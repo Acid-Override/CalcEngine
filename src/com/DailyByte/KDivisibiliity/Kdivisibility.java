@@ -18,35 +18,25 @@ public class Kdivisibility {
 
     private int[] nums;
     private int k;
-    private int count=0;
+    private int count = 0;
 
     public int kDivis() {
 
-        for (int i=0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int j = i + 1;
             int sum = nums[i];
             if(sum == k) {
                 count++;
                 continue;
             }
-            while (j != nums.length){
-                sum += nums[j];
-                j++;
+            while (j < nums.length && sum < k){
+                sum += nums[j++];
                 if(sum == k) {
                     count++;
                     break;
                 }
-
-                if(sum > k) {
-                    break;
-                }
             }
-
         }
-
-
-
         return count;
     }
-
 }
