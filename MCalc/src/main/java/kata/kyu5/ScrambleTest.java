@@ -1,12 +1,11 @@
 package kata.kyu5;
 
-import org.junit.Test;
-import org.junit.jupiter.api.*;
-import static org.junit.Assert.assertEquals;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static kata.kyu5.Scramble.scramble;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ScrambleTest {
 

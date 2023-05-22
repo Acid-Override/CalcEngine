@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CalcEngine" />
+        <module name="MCalc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CalcEngine" target="11" />
+      <module name="CalcEngine" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
