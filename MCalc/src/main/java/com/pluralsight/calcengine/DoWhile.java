@@ -6,7 +6,7 @@ public class DoWhile {
         int iVal = 5;
 
         do {
-            System.out.print(iVal);
+            System.out.println(iVal);
             iVal--;
         } while ( iVal != 0 );
     }

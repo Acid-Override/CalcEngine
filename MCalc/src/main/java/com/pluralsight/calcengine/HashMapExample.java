@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class HashMapExample {
 
-    HashMap<Integer, Integer> hashMap = new HashMap();
+    HashMap<Integer, Integer> hashMap = new HashMap<>();
 
     public HashMapExample() {
         this.hashMap.put(0,0);
@@ -27,7 +27,7 @@ public class HashMapExample {
             //store value in hashmap
 
             if (hashMap.containsKey(k)) {
-                return (int) hashMap.get(k);
+                return hashMap.get(k);
             }
             if (k > 0) {
                 int result =  k + sum(k - 1);

@@ -1,24 +1,8 @@
 package com.pluralsight.calcengine;
 
+public class BinarySearchTree {
 
-import org.junit.jupiter.api.Test;
-
-class BinarySearchTree {
-
-    @Test
-    public void firstTest() {
-        Node node = new Node(10, new Node (20), new Node(30));
-
-        System.out.println(node.value);
-        System.out.println(node.getLeft());
-        System.out.println(node.getRight());
-    }
-    @Test
-    public void secondTest() {
-
-    }
-
-    class Node {
+    public static class Node {
         private int value;
         private Node left;
         private Node right;
@@ -56,7 +40,7 @@ class BinarySearchTree {
 
     Node root;
 
-    BinarySearchTree() {
+    public BinarySearchTree() {
         root = null;
     }
 
@@ -64,7 +48,7 @@ class BinarySearchTree {
         root = new Node(Value);
     }
 
-    void insert (int key) {
+    public void insert(int key) {
         root = insertRec(root, key);
     }
 
@@ -95,7 +79,7 @@ class BinarySearchTree {
         return root;
     }
 
-    private void inorder() {
+    public void inorder() {
         //helper function to send to recursive function
         inorderRec(root);
     }
@@ -104,6 +88,7 @@ class BinarySearchTree {
         //recursively iterate through tree and print out value.
 
         if (root != null ) {
+            System.out.println(root.value);
             inorderRec(root.left);
             System.out.println(root.getValue());
             inorderRec(root.right);
