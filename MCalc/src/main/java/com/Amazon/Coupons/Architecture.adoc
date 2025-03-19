@@ -1,0 +1,200 @@
+Designing a coupon system for an e-commerce site requires handling coupon generation, validation, and application logic based on products and their categories. Below is a high-level architecture and design for such a system.
+
+'''
+
+== *System Design Overview*
+
+The coupon system should allow:
+1. *Coupon Generation* – Creating coupons with rules based on products, categories, discounts, and validity periods.
+2. *Coupon Storage &amp; Retrieval* – Storing generated coupons and efficiently fetching them for validation.
+3. *Coupon Validation* – Ensuring coupons are valid based on rules like expiration date, product/category match, usage limits, etc.
+4. *Coupon Application* – Applying valid coupons to eligible products during checkout.
+5. *Coupon Expiry &amp; Tracking* – Tracking usage limits, invalidating expired coupons, and auditing coupon applications.
+
+'''
+
+== *Architecture Components*
+
+=== *1. Database Schema (Using MongoDB or SQL)*
+
+Tables/Collections required:
+
+==== *Coupons Table*
+
+|===
+|Field |Type |Description 
+
+|`coupon_id` |String (UUID) |Unique coupon identifier 
+|`code` |String |Unique coupon code 
+|`discount_type` |Enum (PERCENTAGE, FIXED) |Type of discount 
+|`discount_value` |Decimal |Percentage or fixed amount 
+|`applicable_to` |Enum (PRODUCT, CATEGORY) |Defines if it applies to a product or category 
+|`product_ids` |Array[String] |List of applicable product IDs (if applicable) 
+|`category_ids` |Array[String] |List of applicable category IDs (if applicable) 
+|`valid_from` |Timestamp |Coupon start date 
+|`valid_until` |Timestamp |Coupon expiry date 
+|`usage_limit` |Integer |Maximum number of uses allowed 
+|`times_used` |Integer |Number of times the coupon has been used 
+|===
+
+==== *User_Coupons Table*
+
+|===
+|Field |Type |Description 
+
+|`user_id` |String |User who applied the coupon 
+|`coupon_id` |String |The applied coupon ID 
+|`applied_at` |Timestamp |Date and time of application 
+|===
+
+'''
+
+=== *2. Coupon Generation Service*
+
+* *Inputs:* Discount details, applicable products/categories, validity period, usage limits.
+* *Outputs:* Generates a unique coupon code and stores it in the database.
+
+*Example Flow:*
+1. Admin requests coupon creation (`10% off all Electronics`).
+2. System generates a unique coupon code (e.g., `ELEC10OFF`).
+3. The coupon is stored with category association (`category_id = Electronics`).
+4. Users can retrieve and apply this coupon at checkout.
+
+'''
+
+=== *3. Coupon Validation Service*
+
+* *Checks the following before applying a coupon:*
+. *Validity period* – `valid_from <= current_time <= valid_until`
+. *Usage limit* – `times_used < usage_limit`
+. *Product/category match* – Ensures coupon applies to selected items
+. *User eligibility* – Checks if the user has already used the coupon (if applicable)
+* *Returns:* Coupon status (valid/invalid) and applicable discount.
+
+*Validation API Example:*
+
+[source,json]
+----
+{
+  "coupon_code": "ELEC10OFF",
+  "user_id": "12345",
+  "cart_items": [
+    { "product_id": "p1", "category_id": "electronics", "price": 100 }
+  ]
+}
+----
+
+*Response:*
+
+[source,json]
+----
+{
+  "valid": true,
+  "discount_applied": 10,
+  "message": "10% off applied to Electronics."
+}
+----
+
+'''
+
+=== *4. Coupon Application Service*
+
+* Applies validated discounts to cart totals.
+* Ensures correct deduction in checkout.
+
+*Discount Calculation Example (Pseudocode):*
+
+[source,python]
+----
+def apply_coupon(cart, coupon):
+    discount = 0
+    for item in cart["items"]:
+        if coupon.applies_to(item):
+            if coupon.discount_type == "PERCENTAGE":
+                discount += (item.price * coupon.discount_value / 100)
+            elif coupon.discount_type == "FIXED":
+                discount += coupon.discount_value
+    return discount
+----
+
+'''
+
+=== *5. Expiry &amp; Tracking Service*
+
+* *Runs a periodic job to:*
+. Expire old coupons (`valid_until < NOW()`).
+. Update `times_used` counter when a coupon is applied.
+. Notify users of upcoming expirations.
+'''
+
+== *Tech Stack Recommendations*
+
+* *Backend:* Java (Spring Boot) or Node.js (Express)
+* *Database:* PostgreSQL/MySQL (relational) or MongoDB (NoSQL)
+* *Caching:* Redis (for fast coupon lookups)
+* *Queue Processing:* Kafka or RabbitMQ (for processing coupon expirations and tracking usage)
+'''
+
+== *API Endpoints Design*
+
+=== *1. Generate Coupon*
+
+`POST /coupons`
+
+[source,json]
+----
+{
+  "code": "ELEC10OFF",
+  "discount_type": "PERCENTAGE",
+  "discount_value": 10,
+  "applicable_to": "CATEGORY",
+  "category_ids": ["electronics"],
+  "valid_from": "2025-03-20T00:00:00Z",
+  "valid_until": "2025-04-20T23:59:59Z",
+  "usage_limit": 100
+}
+----
+
+=== *2. Validate Coupon*
+
+`POST /coupons/validate`
+
+[source,json]
+----
+{
+  "coupon_code": "ELEC10OFF",
+  "user_id": "12345",
+  "cart_items": [
+    { "product_id": "p1", "category_id": "electronics", "price": 100 }
+  ]
+}
+----
+
+=== *3. Apply Coupon*
+
+`POST /coupons/apply`
+
+[source,json]
+----
+{
+  "coupon_code": "ELEC10OFF",
+  "user_id": "12345",
+  "cart_id": "CART123"
+}
+----
+
+'''
+
+== *Scalability Considerations*
+
+. *Redis Cache* – Frequently used coupons can be cached to reduce DB queries.
+. *Rate Limiting* – Prevent abuse by limiting coupon validation requests.
+. *Sharding in Database* – Split coupons and users across multiple DB instances if needed.
+. *Event-Driven Processing* – Use Kafka to process coupon usage asynchronously.
+'''
+
+== *Conclusion*
+
+This system enables efficient coupon generation, validation, and application while ensuring flexibility for products and categories. It is designed for performance, scalability, and ease of use in an e-commerce environment.
+
+Would you like to dive deeper into any specific component?
