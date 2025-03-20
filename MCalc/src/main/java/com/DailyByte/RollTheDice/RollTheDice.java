@@ -29,6 +29,13 @@ public class RollTheDice {
         return 0;
     }
 
+    /**
+     * Calculates the total number of ways to roll the N dice to achieve the given target sum.
+     * Utilizes dynamic programming to store intermediary results for subproblems.
+     *
+     * @param target the desired sum of the face-up values of the dice
+     * @return the total number of ways to achieve the target sum with N dice
+     */
     public int rollTheDice( int target) {
         int[][] dp = new int[N + 1][target + 1];
         dp[0][0] = 1;
@@ -44,6 +51,7 @@ public class RollTheDice {
             }
         }
 
+        System.out.println(dp[N][target]);
         return dp[N][target];
     }
 

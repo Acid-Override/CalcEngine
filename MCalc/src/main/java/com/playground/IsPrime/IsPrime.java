@@ -1,4 +1,4 @@
-package com.playground;
+package com.playground.IsPrime;
 
 public class IsPrime {
     public static boolean isPrime(int number) {

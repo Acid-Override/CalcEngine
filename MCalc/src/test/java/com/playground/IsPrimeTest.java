@@ -1,5 +1,6 @@
 package com.playground;
 
+import com.playground.IsPrime.IsPrime;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
