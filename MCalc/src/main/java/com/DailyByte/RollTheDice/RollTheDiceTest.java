@@ -36,6 +36,6 @@ class RollTheDiceTest {
         rtd = new RollTheDice(8, 6);
         int result = rtd.rollTheDice(8*3);
         System.out.println(result);
-        log.debug("RESULT+{}", result);
+        log.info("RESULT+{}", result);
     }
 }

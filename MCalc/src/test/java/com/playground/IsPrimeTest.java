@@ -1,10 +1,12 @@
 package com.playground;
 
 import com.playground.IsPrime.IsPrime;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Slf4j
 class IsPrimeTest {
 
     @Test
@@ -23,9 +25,18 @@ class IsPrimeTest {
     }
 
     @Test
-    void isPrimeRecursive() {
+    void isPrimeRecursiveTrue() {
         IsPrime isPrime = new IsPrime();
         boolean result = isPrime.isPrimeRecursive(7);
+        log.info("7 is prime={}", result);
         assertTrue(result);
+    }
+
+    @Test
+    void isPrimeRecursiveFalse() {
+        IsPrime isPrime = new IsPrime();
+        boolean result = isPrime.isPrimeRecursive(8);
+        log.info("8 is prime={}", result);
+        assertFalse(result);
     }
 }
