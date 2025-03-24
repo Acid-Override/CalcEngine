@@ -18,7 +18,8 @@ public class IsPrime {
     }
 
     private boolean isPrimeRecursive(int number, int divisor) {
-        if (divisor <= 2) {
+
+        if (number <= 2 && number >= 0) {
             return true;
         } else if (number % divisor == 0) {
             return false;

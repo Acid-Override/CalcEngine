@@ -1,4 +1,4 @@
-package com.playground.HouseRobber;
+package com.playground.DynamicProgramming.HouseRobber;
 
 
 /**
