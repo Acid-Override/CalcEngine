@@ -90,8 +90,8 @@ class IsPrimeTest {
      */
     @Test
     void isPrimeVirtualThreadsGoogle() {
-        long limit = 10_000_007L;
-        long numThreads = 10;
+        long limit = 100_000_007L;
+        long numThreads = 10000;
         AtomicInteger primeCount = new AtomicInteger(0);
 
         try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
@@ -137,7 +137,7 @@ class IsPrimeTest {
     void isPrimeVirtualThreadsIterate() {
         AtomicLong count = new AtomicLong();
         Thread vThread = Thread.ofVirtual().start(() -> {
-            count.set(LongStream.rangeClosed(0, 10_000_007L).parallel().filter(IsPrime::isPrime).count());
+            count.set(LongStream.rangeClosed(0, 100_000_007L).parallel().filter(IsPrime::isPrime).count());
         });
         try {
             vThread.join();
@@ -156,7 +156,7 @@ class IsPrimeTest {
     @Test
     void findPrimes() {
         List<Long> listOfPrimes = new ArrayList();
-        for (long i = 2; i <= 10_000_007L; i++) {
+        for (long i = 2; i <= 100_000_007L; i++) {
             if (IsPrime.isPrime(i)) {
                 listOfPrimes.add(i);
             }
@@ -226,7 +226,7 @@ class IsPrimeTest {
         executor = new ThreadPoolExecutor(3, 10, 5L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2), threadFactory);
 
         executor.execute(() -> {
-            count.set(IntStream.rangeClosed(0, 10_000_007).filter(IsPrime::isPrime).count());
+            count.set(IntStream.rangeClosed(0, 10_000_007).parallel().filter(IsPrime::isPrime).count());
         });
 
         log.info("# of Primes Found={}", count.get());
