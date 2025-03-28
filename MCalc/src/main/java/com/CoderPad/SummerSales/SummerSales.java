@@ -51,16 +51,18 @@ public class SummerSales {
         // return total
 
         total = total.subtract(max);
-        BigDecimal maxWithDiscount = calculateDiscount(max, discount);
-        log.info("maxWithDiscount={}", maxWithDiscount);
-        return total.add(maxWithDiscount).intValueExact();
+        BigDecimal maxCostWithDiscount = calculateDiscount(max, discount);
+        log.info("Discount on most expensive item={}", maxCostWithDiscount);
+        return total.add(maxCostWithDiscount).intValueExact();
     }
 
     private static BigDecimal calculateDiscount(BigDecimal max, int discount) {
         log.info("max={}", max);
         log.info("discount={}", discount);
-       return  max
-               .multiply(BigDecimal.valueOf(1).subtract(BigDecimal.valueOf(discount).divide(BigDecimal.valueOf(100), RoundingMode.FLOOR)))
+        BigDecimal convertedDiscount = BigDecimal.valueOf(1)
+                .subtract(BigDecimal.valueOf(discount).movePointLeft(2)
+                );
+       return  max.multiply(convertedDiscount)
                .setScale(0, RoundingMode.FLOOR);
     }
 }
