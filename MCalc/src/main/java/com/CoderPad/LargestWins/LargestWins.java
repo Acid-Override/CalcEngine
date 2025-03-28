@@ -35,4 +35,14 @@ public class LargestWins {
     public int findLargest(List<Integer> numbers) {
         return Collections.max(numbers);
     }
+
+    public int findLargestClassical(List<Integer> numbers) {
+        int max = numbers.getFirst();
+        for (int i = 1; i < numbers.size(); i++) {
+            if (numbers.get(i) > max) {
+                max = numbers.get(i);
+            }
+        }
+        return max;
+    }
 }
