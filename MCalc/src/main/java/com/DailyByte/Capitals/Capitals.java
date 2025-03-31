@@ -24,8 +24,15 @@ public class Capitals {
     private boolean verifyLetters(String k) {
         return Arrays.stream(k.split(" "))
                 .map(String::trim)
-                .map(word -> word.matches("\\b([A-Z]\\w*)\\b"))
+                .map(this::validateFirstLetter)
                 .reduce(true, Boolean::logicalAnd);
+    }
+
+    private boolean validateFirstLetter(String k) {
+        if (k == null || k.trim().isEmpty()) {
+            return false;
+        }
+        return Character.isUpperCase(k.charAt(0)) && k.substring(1).matches("[a-z]\\w*");
     }
 
     public static Map<String, Integer> getError() { return error; }
