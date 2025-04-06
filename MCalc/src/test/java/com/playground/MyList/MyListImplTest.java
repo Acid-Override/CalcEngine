@@ -1,5 +1,6 @@
 package com.playground.MyList;
 
+import com.playground.MyList.MyListV2.MyListV2Impl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MyListImplTest {
 
-    private static MyListImpl<Integer> list;
+    private static MyListV2Impl<Integer> list;
 
     @BeforeEach
     void init() {
-        list = new MyListImpl<>();
+        list = new MyListV2Impl<>();
     }
 
     @Test

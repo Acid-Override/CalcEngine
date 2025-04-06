@@ -1,22 +1,11 @@
-package com.playground.MyList;
+package com.playground.MyList.Decorator;
 
-
-import lombok.Getter;
+import com.playground.MyList.Decorator.api.MyListV3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-interface MyList<T> {
-    boolean add(T item);
-    boolean addAll(List<T> items);
-    boolean contains(T item);
-
-    int size();
-}
-
-@Getter
-public class MyListImpl<T> implements MyList<T> {
+public class MyListV3Impl<T> implements MyListV3<T> {
 
     private final List<T> list = new ArrayList<>();
 
@@ -26,7 +15,7 @@ public class MyListImpl<T> implements MyList<T> {
     }
 
     @Override
-    public final boolean addAll(List<T> items) {
+    public boolean addAll(List<T> items) {
         return list.addAll(items);
     }
 
