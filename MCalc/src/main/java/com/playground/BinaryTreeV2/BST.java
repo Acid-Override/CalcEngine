@@ -66,6 +66,51 @@ public class BST {
         return null;
     }
 
+    public boolean remove(int val) {
+        rootNode = removeRec(rootNode, val);
+        return rootNode != null;
+    }
+
+    private Node removeRec(Node rootNode, int val) {
+        // compare val with rootNode
+        if (rootNode == null) {
+            return null;
+        }
+
+        if (val > rootNode.value) {
+            rootNode.right = removeRec(rootNode.right, val);
+        } else if (val < rootNode.value) {
+            rootNode.left = removeRec(rootNode.left, val);
+        } else {
+            // val == rootNode.value
+            // case 1: no children
+            if (rootNode.left == null && rootNode.right == null) {
+                return null;
+            }
+            // case 2: one child
+            if (rootNode.left == null) {
+                return rootNode.right;
+            } else if (rootNode.right == null) {
+                return rootNode.left;
+            }
+            // case 3: two children
+            // get the inorder successor (smallest in the right subtree)
+            rootNode.value = minValue(rootNode.right);
+            // delete the inorder successor
+            rootNode.right = removeRec(rootNode.right, rootNode.value);
+        }
+        return null;
+    }
+
+    private int minValue(Node node) {
+        int minValue = node.value;
+        while (node.left != null) {
+            minValue = node.left.value;
+            node = node.left;
+        }
+        return minValue;
+    }
+
     @Override
     public String toString() {
         return "BST{" +
