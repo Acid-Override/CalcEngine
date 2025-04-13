@@ -3,6 +3,8 @@ package com.playground.BinaryTreeV2;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Objects;
+
 @Slf4j
 @Getter
 public class BST {
@@ -13,6 +15,7 @@ public class BST {
         protected int value;
         protected Node left;
         protected Node right;
+        protected boolean isRemoved = false;
 
         public Node(int value) {
             this.value = value;
@@ -54,6 +57,10 @@ public class BST {
     }
 
     private Node findRec(Node node, int val) {
+        if (node == null) {
+            return null;
+        }
+        
         if (node.value == val) {
             return node;
         }
@@ -66,9 +73,19 @@ public class BST {
         return null;
     }
 
-    public boolean remove(int val) {
-        rootNode = removeRec(rootNode, val);
-        return rootNode != null;
+    public Node remove(int val) {
+        if (rootNode == null) {
+            return null;
+        }
+        
+        // First find the node to mark it as removed
+        Node nodeToRemove = find(val);
+        if (nodeToRemove != null) {
+            nodeToRemove.isRemoved = true;
+            // Only remove the node if it currently exists
+            rootNode = removeRec(rootNode, val);
+        }
+        return rootNode;
     }
 
     private Node removeRec(Node rootNode, int val) {
@@ -82,24 +99,30 @@ public class BST {
         } else if (val < rootNode.value) {
             rootNode.left = removeRec(rootNode.left, val);
         } else {
-            // val == rootNode.value
             // case 1: no children
+            log.info("REMOVING={}", rootNode);
+            log.info("CASE 1, NO CHILDREN CHECK");
             if (rootNode.left == null && rootNode.right == null) {
+                log.info("CASE 1, NO CHILDREN");
                 return null;
             }
             // case 2: one child
-            if (rootNode.left == null) {
+            log.info("CASE 2, ONE CHILD CHECK");
+            if (rootNode.left == null && rootNode.right != null) {
+                log.info("CASE 2, ONE RIGHT CHILD");
                 return rootNode.right;
-            } else if (rootNode.right == null) {
+            } else if (rootNode.right == null && rootNode.left != null) {
+                log.info("CASE 2, ONE LEFT CHILD");
                 return rootNode.left;
             }
             // case 3: two children
             // get the inorder successor (smallest in the right subtree)
+            log.info("CASE 3, TWO CHILDREN");
             rootNode.value = minValue(rootNode.right);
             // delete the inorder successor
             rootNode.right = removeRec(rootNode.right, rootNode.value);
         }
-        return null;
+        return rootNode;
     }
 
     private int minValue(Node node) {
