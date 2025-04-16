@@ -241,10 +241,6 @@ public class BST {
         return node;
     }
 
-//    private Node buildBalancedTreeV2(int[] values, int start, int end) {
-//        // Base case: empty subarray
-//    }
-
     @Override
     public String toString() {
         return "BST{" +
