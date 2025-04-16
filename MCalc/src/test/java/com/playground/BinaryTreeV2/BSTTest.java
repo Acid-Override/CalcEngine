@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -533,5 +535,24 @@ class BSTTest {
         assertTrue(treeString.contains("value=10"));
         assertTrue(treeString.contains("value=5"));
         assertTrue(treeString.contains("size=2"));
+    }
+
+    @Test
+    @DisplayName("Should correctly rebalance very large trees of random numbers")
+    void testRebalance() {
+        BST tree = new BST();
+        Random random = new Random();
+        // generate 100000 random numbers
+
+        for (int i = 0; i < 100000; i++) {
+            tree.add(random.nextInt(100000));
+        }
+        tree.printTree();
+
+        assertEquals(100000, tree.getSize());
+        tree.rebalance();
+        assertEquals(100000, tree.getSize());
+
+        tree.printTree();
     }
 }
