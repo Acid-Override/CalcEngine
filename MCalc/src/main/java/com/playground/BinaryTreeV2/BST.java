@@ -12,6 +12,25 @@ public class BST {
     private Node rootNode;
     private int size = 0;
 
+    public void printTree() {
+        if (rootNode == null) {
+            return;
+        }
+        printTreeRec(rootNode, 0);
+    }
+
+    private void printTreeRec(Node rootNode, int i) {
+        if (rootNode == null) {
+            return;
+        }
+        printTreeRec(rootNode.right, i + 1);
+        for (int j = 0; j < i; j++) {
+            System.out.print("    ");
+        }
+        System.out.println(rootNode.value);
+        printTreeRec(rootNode.left, i + 1);
+    }
+
     public static class Node {
         protected int value;
         protected Node left;
@@ -221,6 +240,10 @@ public class BST {
         
         return node;
     }
+
+//    private Node buildBalancedTreeV2(int[] values, int start, int end) {
+//        // Base case: empty subarray
+//    }
 
     @Override
     public String toString() {
