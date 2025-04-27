@@ -46,7 +46,7 @@ public class HibernateExample {
                     .withName("o")  // Name contains 'o'
                     .withCreatedAfter(LocalDateTime.now().minusDays(1))
                     .withSortField("name")
-                    .withSortAscending(true);
+                    .withSortAscending(false);
 
             List<Customer> searchResults = customerRepository.search(criteria);
             System.out.println("\nSearch results for customers with name containing 'o', created in the last day, sorted by name:");

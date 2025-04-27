@@ -77,9 +77,7 @@ public class CustomerRepository {
 
                     );
             query.where(predicate);
-
             Customer customer = session.createQuery(query).getSingleResultOrNull();
-//                Customer customer = session.get(Customer.class, id);
             return Optional.ofNullable(customer);
         }
     }
@@ -92,7 +90,7 @@ public class CustomerRepository {
             CriteriaBuilder cb = session.getCriteriaBuilder();
             CriteriaQuery<Customer> query = cb.createQuery(Customer.class);
             Root<Customer> root = query.from(Customer.class);
-            query.select(root);
+            query.select(root).where(cb.isFalse(root.get(Customer_.deleted)));
 
             return session.createQuery(query).getResultList();
         } catch (Exception e) {
@@ -111,7 +109,12 @@ public class CustomerRepository {
             Root<Customer> root = query.from(Customer.class);
 
             // Using the generated metamodel for type-safety
-            query.where(cb.equal(root.get(Customer_.name), name));
+            Predicate predicate =
+                    cb.and(
+                            cb.equal(root.get(Customer_.name), name),
+                            cb.isFalse(root.get(Customer_.deleted))
+            );
+            query.where(predicate);
 
             return session.createQuery(query).getResultList();
         }
@@ -126,9 +129,12 @@ public class CustomerRepository {
             CriteriaQuery<Customer> query = cb.createQuery(Customer.class);
             Root<Customer> root = query.from(Customer.class);
 
-            // Using the generated metamodel for type-safety
-            query.where(cb.like(root.get(Customer_.name), "%" + nameSubstring + "%"));
-
+            Predicate predicate =
+                    cb.and(
+                            cb.like(root.get(Customer_.name), "%" + nameSubstring + "%"),
+                            cb.isFalse(root.get(Customer_.deleted))
+                    );
+            query.where(predicate);
             return session.createQuery(query).getResultList();
         }
     }
