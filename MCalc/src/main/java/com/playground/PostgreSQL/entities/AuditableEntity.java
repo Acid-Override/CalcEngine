@@ -19,10 +19,10 @@ public abstract class AuditableEntity {
     @Column(name = "deleted")
     private boolean deleted;
 
-    @Column(name = "created_by_user", updatable = false)
+    @Column(name = "created_by_user")
     private String createdByUser;
 
-    @Column(name = "updated_by_user", nullable = false)
+    @Column(name = "updated_by_user")
     private String updatedByUser;
 
     // Getters and Setters

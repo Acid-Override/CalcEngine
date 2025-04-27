@@ -24,13 +24,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CustomerRepositoryTest {
 
-    private static CustomerRepository repository;
+    private static CustomerRepository customerRepository;
     private static String uniqueEmail;
     private static Long savedCustomerId;
 
     @BeforeAll
     static void setUp() {
-        repository = new CustomerRepository();
+        customerRepository = new CustomerRepository();
         // Generate a unique email for each test run to avoid conflicts
         uniqueEmail = "test_" + UUID.randomUUID().toString().substring(0, 8) + "@example.com";
 
@@ -71,10 +71,10 @@ class CustomerRepositoryTest {
         customer.setEmail(uniqueEmail);
 
         // Save the customer
-        repository.save(customer);
+        customerRepository.save(customer);
 
         // Verify the customer was saved by finding it by email
-        Optional<Customer> found = repository.findByEmail(uniqueEmail);
+        Optional<Customer> found = customerRepository.findByEmail(uniqueEmail);
         log.info("Found customer: {}", found);
         assertTrue(found.isPresent(), "Customer should be saved and findable by email");
         assertNotNull(found.get().getId(), "Customer ID should be generated");
@@ -87,7 +87,7 @@ class CustomerRepositoryTest {
     @Order(2)
     void testFindById() {
         // Find the customer by ID
-        Optional<Customer> found = repository.findById(savedCustomerId);
+        Optional<Customer> found = customerRepository.findById(savedCustomerId);
 
         // Verify the customer was found
         assertTrue(found.isPresent(), "Customer should be found by ID");
@@ -99,7 +99,7 @@ class CustomerRepositoryTest {
     @Order(3)
     void testFindByName() {
         // Find customers by name
-        List<Customer> customers = repository.findByName("Test Customer");
+        List<Customer> customers = customerRepository.findByName("Test Customer");
 
         // Verify at least one customer was found
         assertFalse(customers.isEmpty(), "At least one customer should be found by name");
@@ -114,7 +114,7 @@ class CustomerRepositoryTest {
     @Order(4)
     void testFindByNameContaining() {
         // Find customers by partial name
-        List<Customer> customers = repository.findByNameContaining("Test");
+        List<Customer> customers = customerRepository.findByNameContaining("Test");
 
         // Verify at least one customer was found
         assertFalse(customers.isEmpty(), "At least one customer should be found by partial name");
@@ -129,7 +129,7 @@ class CustomerRepositoryTest {
     @Order(5)
     void testUpdateCustomer() {
         // Find the customer by ID
-        Optional<Customer> foundOptional = repository.findById(savedCustomerId);
+        Optional<Customer> foundOptional = customerRepository.findById(savedCustomerId);
         assertTrue(foundOptional.isPresent(), "Customer should exist for update test");
 
         Customer customer = foundOptional.get();
@@ -139,10 +139,10 @@ class CustomerRepositoryTest {
         customer.setName(newName);
 
         // Save the updated customer
-        repository.update(customer);
+        customerRepository.update(customer);
 
         // Verify the customer was updated
-        Optional<Customer> updatedOptional = repository.findById(savedCustomerId);
+        Optional<Customer> updatedOptional = customerRepository.findById(savedCustomerId);
         assertTrue(updatedOptional.isPresent(), "Customer should still exist after update");
         assertEquals(newName, updatedOptional.get().getName(), "Name should be updated");
     }
@@ -159,7 +159,7 @@ class CustomerRepositoryTest {
                 .withSortAscending(true);
 
         // Search for customers
-        List<Customer> customers = repository.search(criteria);
+        List<Customer> customers = customerRepository.search(criteria);
 
         // Verify our test customer is found
         assertFalse(customers.isEmpty(), "At least one customer should match search criteria");
@@ -172,7 +172,7 @@ class CustomerRepositoryTest {
     @Order(7)
     void testFindAll() {
         // Get all customers
-        List<Customer> allCustomers = repository.findAll();
+        List<Customer> allCustomers = customerRepository.findAll();
 
         // Verify at least our test customer is included
         assertFalse(allCustomers.isEmpty(), "There should be at least one customer");
@@ -185,17 +185,17 @@ class CustomerRepositoryTest {
     @Order(8)
     void testDeleteCustomer() {
         // Find the customer by ID
-        Optional<Customer> foundOptional = repository.findById(savedCustomerId);
+        Optional<Customer> foundOptional = customerRepository.findById(savedCustomerId);
         assertTrue(foundOptional.isPresent(), "Customer should exist for delete test");
 
         Customer customer = foundOptional.get();
 
         // Delete the customer
-        repository.delete(customer);
+        customerRepository.delete(customer);
 
 
         // Verify the customer was deleted
-        Optional<Customer> deletedOptional = repository.findById(savedCustomerId);
+        Optional<Customer> deletedOptional = customerRepository.findById(savedCustomerId);
         assertFalse(deletedOptional.isPresent(), "Customer should be deleted");
     }
 
@@ -208,20 +208,18 @@ class CustomerRepositoryTest {
         customer.setEmail("rollback_" + UUID.randomUUID().toString().substring(0, 8) + "@example.com");
 
         // Save the customer first to ensure it exists
-        repository.save(customer);
+        customerRepository.save(customer);
 
         // Verify the customer was saved
-        Optional<Customer> found = repository.findByEmail(customer.getEmail());
+        Optional<Customer> found = customerRepository.findByEmail(customer.getEmail());
         assertTrue(found.isPresent(), "Customer should be saved successfully");
 
         // Now create a method that will fail during a transaction
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         try {
             // Get the current SessionFactory
-
-            // Start a transaction
-//            Transaction transaction = null;
             try (Session session = sessionFactory.openSession()) {
+            // Start a transaction
                 Transaction transaction = session.beginTransaction();
                 try {
                     // First operation - update the customer name
@@ -249,15 +247,14 @@ class CustomerRepositoryTest {
 
 
 //            // Verify the rollback worked - customer name should be unchanged
-            Optional<Customer> afterRollback = repository.findByEmail(customer.getEmail());
+            Optional<Customer> afterRollback = customerRepository.findByEmail(customer.getEmail());
             assertTrue(afterRollback.isPresent(), "Customer should still exist after rollback");
             assertEquals("Rollback Test Customer", afterRollback.get().getName(),
                     "Customer name should be unchanged after rollback");
 
         } finally {
             // Clean up - delete the test customer
-            found.ifPresent(repository::delete);
-            // Verify the rollback worked - customer name should be unchanged
+            found.ifPresent(customerRepository::delete);
 
             // TODO:
 //            String emailPattern = "rollback_%";
