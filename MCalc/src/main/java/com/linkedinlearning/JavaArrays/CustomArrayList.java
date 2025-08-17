@@ -17,7 +17,9 @@ public class CustomArrayList<D> {
             System.out.println("Invalid index");
             return null;
         }
-            return (D) elements[i];
+            @SuppressWarnings("unchecked")
+            D result = (D) elements[i];
+            return result;
     }
 
     public void add (D item) {

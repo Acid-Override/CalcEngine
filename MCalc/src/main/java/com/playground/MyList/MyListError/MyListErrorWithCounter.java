@@ -15,7 +15,8 @@ public class MyListErrorWithCounter<T> extends MyListError<T> {
     }
 
     @Override
-    public final boolean addAll(T... items) {
+    @SuppressWarnings("unchecked")
+    public boolean addAll(T... items) {
         return super.addAll(items);
     }
 

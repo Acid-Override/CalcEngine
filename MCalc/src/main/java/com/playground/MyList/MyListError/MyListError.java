@@ -29,6 +29,7 @@ public class MyListError<T> {
         arr = newArr;
     }
 
+    @SuppressWarnings("unchecked")
     public boolean addAll(T... items) {
         boolean result = true;
         for (T item : items) {

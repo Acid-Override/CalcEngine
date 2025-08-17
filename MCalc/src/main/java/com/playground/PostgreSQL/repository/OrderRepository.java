@@ -5,6 +5,7 @@ import com.playground.PostgreSQL.entities.Customer_;
 import com.playground.PostgreSQL.entities.Order;
 import com.playground.PostgreSQL.entities.Order_;
 import com.playground.PostgreSQL.utilities.HibernateUtil;
+import jakarta.persistence.Tuple;
 import jakarta.persistence.criteria.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -219,11 +220,12 @@ public class OrderRepository {
 
     /**
      * Count orders for each customer
+     * @return List of Tuple where tuple.get(0) = Customer, tuple.get(1) = order count
      */
-    public List<Object[]> countOrdersByCustomer() {
+    public List<Tuple> countOrdersByCustomer() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
-            CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
+            CriteriaQuery<Tuple> query = cb.createTupleQuery();
             Root<Order> root = query.from(Order.class);
 
             // Join with customer
@@ -232,11 +234,8 @@ public class OrderRepository {
             // Group by customer
             query.groupBy(customerJoin.get(Customer_.id));
 
-            // Select customer and count
-            query.multiselect(
-                    customerJoin,
-                    cb.count(root)
-            );
+            // Select customer and count using modern tuple approach
+            query.select(cb.tuple(customerJoin, cb.count(root)));
 
             // Order by count descending
             query.orderBy(cb.desc(cb.count(root)));

@@ -4,6 +4,7 @@ package com.playground.PostgreSQL.repository;
 import com.playground.PostgreSQL.entities.Customer;
 import com.playground.PostgreSQL.entities.Order;
 import com.playground.PostgreSQL.utilities.HibernateUtil;
+import jakarta.persistence.Tuple;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -282,18 +283,18 @@ class OrderRepositoryTest {
     @Test
     @org.junit.jupiter.api.Order(8)
     void testCountOrdersByCustomer() {
-        // Get order counts by customer
-        List<Object[]> orderCounts = orderRepository.countOrdersByCustomer();
+        // Get order counts by customer using modern Tuple approach
+        List<Tuple> orderCounts = orderRepository.countOrdersByCustomer();
 
         // Verify we have results
         assertFalse(orderCounts.isEmpty(), "Should have order counts");
 
         // Find our test customers in the results
-        Object[] customer1Result = null;
-        Object[] customer2Result = null;
+        Tuple customer1Result = null;
+        Tuple customer2Result = null;
 
-        for (Object[] result : orderCounts) {
-            Customer customer = (Customer) result[0];
+        for (Tuple result : orderCounts) {
+            Customer customer = result.get(0, Customer.class);  // Type-safe access
             if (customer.getId().equals(testCustomer1.getId())) {
                 customer1Result = result;
             } else if (customer.getId().equals(testCustomer2.getId())) {
@@ -305,8 +306,9 @@ class OrderRepositoryTest {
         assertNotNull(customer1Result, "Should find testCustomer1 in results");
         assertNotNull(customer2Result, "Should find testCustomer2 in results");
 
-        assertEquals(2L, customer1Result[1], "Customer 1 should have 2 orders");
-        assertEquals(1L, customer2Result[1], "Customer 2 should have 1 order");
+        // Type-safe access to count values
+        assertEquals(2L, customer1Result.get(1, Long.class), "Customer 1 should have 2 orders");
+        assertEquals(1L, customer2Result.get(1, Long.class), "Customer 2 should have 1 order");
     }
 
     @Test
