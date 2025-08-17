@@ -70,7 +70,7 @@ public class ConsecutiveValueGroups {
 
 
     public boolean solution (int[] nums, int k) {
-        PriorityQueue<Integer> heap = new PriorityQueue();
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
         for (int num: nums){
             heap.add(num);
         }

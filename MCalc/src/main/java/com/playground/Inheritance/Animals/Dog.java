@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString
 public class Dog extends Animal {
 
