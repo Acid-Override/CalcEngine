@@ -67,6 +67,10 @@ This is a Java 21 educational codebase containing algorithm practice problems, c
 - Criteria API used extensively for type-safe queries
 - Transaction management with proper rollback handling in repositories
 
+**Git Commit Messages:**
+- Do NOT include Claude Code attribution or co-authorship in commit messages
+- Keep commit messages clean and focused on the actual changes made
+
 ---
 
 # Claude Code Operating Instructions
