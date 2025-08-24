@@ -1,0 +1,4 @@
+# SDKMAN! version configuration for CalcEngine project
+# This ensures consistent Java version across all team members
+
+java=21.0.8-tem

@@ -32,4 +32,12 @@ bin/
 .DS_Store
 /target/
 /.idea/
-/.idea/
+
+### Environment Files ###
+# Ignore local environment files with secrets
+.env.local
+.env.*.local
+.envrc.local
+
+### Log Files ###
+*.log
