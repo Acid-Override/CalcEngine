@@ -50,7 +50,7 @@ class CustomerRepositoryTest {
             transaction = session.beginTransaction();
 
             // Delete customers with emails that start with "test_"
-            session.createQuery("DELETE FROM Customer c WHERE c.email LIKE 'test_%'")
+            session.createMutationQuery("DELETE FROM Customer c WHERE c.email LIKE 'test_%'")
                     .executeUpdate();
 
             transaction.commit();
