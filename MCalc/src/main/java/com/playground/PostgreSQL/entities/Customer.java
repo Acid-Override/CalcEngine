@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.annotations.SoftDelete;
@@ -17,6 +18,14 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "customers")
+@NamedEntityGraph(
+    name = "Customer.withOrders",
+    attributeNodes = @NamedAttributeNode("orders")
+)
+@NamedEntityGraph(
+    name = "Customer.basic",
+    attributeNodes = {}
+)
 @Getter
 @Setter
 @ToString
@@ -35,6 +44,7 @@ public class Customer extends AuditableEntity {
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @BatchSize(size = 25) // Load orders in batches of 25 instead of one-by-one
     @ToString.Exclude
     private List<Order> orders = new ArrayList<>();
 

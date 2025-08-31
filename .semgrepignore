@@ -1,0 +1,47 @@
+# Build directories
+target/
+build/
+out/
+
+# IDE files  
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Test output
+test-output/
+htmlReport/
+
+# Dependencies
+lib/
+node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Compiled classes
+*.class
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+
+# Specific directories to exclude
+my-temp-data/
+docker/
+
+# Large generated files
+*.jar
+*.war
+*.ear

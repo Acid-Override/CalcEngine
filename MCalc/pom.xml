@@ -160,6 +160,26 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!-- Semgrep Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <executable>semgrep</executable>
+                    <commandlineArgs>--config=../.semgrep.yml --text .</commandlineArgs>
+                    <workingDirectory>${project.basedir}</workingDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>security-scan</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
