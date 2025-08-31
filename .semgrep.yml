@@ -1,0 +1,182 @@
+rules:
+  # Security rules
+  - id: java-sql-injection
+    pattern-either:
+      - pattern: |
+          $STMT.executeQuery("..." + $VAR + "...")
+      - pattern: |
+          $STMT.execute("..." + $VAR + "...")
+      - pattern: |
+          $STMT.executeUpdate("..." + $VAR + "...")
+    message: "Potential SQL injection vulnerability. Use parameterized queries instead."
+    languages: [java]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-89: SQL Injection"
+      confidence: HIGH
+
+  - id: java-hardcoded-password
+    pattern-either:
+      - pattern: |
+          String $VAR = "password";
+      - pattern: |
+          String $VAR = "123456";
+      - pattern: |
+          setProperty("password", "...")
+    message: "Hardcoded password detected. Use environment variables or secure configuration."
+    languages: [java]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-798: Hardcoded Credentials"
+      confidence: MEDIUM
+
+  - id: java-log-injection
+    pattern-either:
+      - pattern: |
+          $LOGGER.info("..." + $VAR + "...")
+      - pattern: |
+          $LOGGER.error("..." + $VAR + "...")
+      - pattern: |
+          $LOGGER.debug("..." + $VAR + "...")
+      - pattern: |
+          System.out.println("..." + $VAR + "...")
+    message: "Potential log injection. Sanitize user input before logging."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: "CWE-117: Log Injection"
+      confidence: MEDIUM
+
+  # Code quality rules
+  - id: java-empty-catch-block
+    pattern: |
+      try {
+        ...
+      } catch ($EXC $VAR) {
+      }
+    message: "Empty catch block detected. Handle exceptions appropriately or add comments explaining why it's safe to ignore."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: correctness
+
+  - id: java-raw-types
+    pattern-either:
+      - pattern: |
+          List $VAR = new ArrayList();
+      - pattern: |
+          Map $VAR = new HashMap();
+      - pattern: |
+          Set $VAR = new HashSet();
+    message: "Raw type usage detected. Use generic types for type safety."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: correctness
+
+  - id: java-string-equals-null-check
+    pattern: |
+      if ($STR.equals("...")) { ... }
+    message: "Potential NullPointerException. Use Objects.equals() or null-check first."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: correctness
+
+  # Performance rules
+  - id: java-string-concatenation-in-loop
+    pattern: |
+      for (...) {
+        ...
+        $STR = $STR + ...;
+        ...
+      }
+    message: "String concatenation in loop can cause performance issues. Use StringBuilder instead."
+    languages: [java]
+    severity: INFO
+    metadata:
+      category: performance
+
+  - id: java-inefficient-string-builder
+    pattern: |
+      new StringBuilder().append($STR).toString()
+    message: "Unnecessary StringBuilder for single append. Use the string directly."
+    languages: [java]
+    severity: INFO
+    metadata:
+      category: performance
+
+  # JPA/Hibernate specific rules
+  - id: java-hibernate-n-plus-one
+    pattern-either:
+      - pattern: |
+          @OneToMany
+          private List<$TYPE> $FIELD;
+      - pattern: |
+          @ManyToOne
+          private $TYPE $FIELD;
+    message: "Potential N+1 query problem. Consider using @Fetch or JOIN FETCH in queries."
+    languages: [java]
+    severity: INFO
+    metadata:
+      category: performance
+      frameworks: [hibernate, jpa]
+
+  - id: java-jpa-missing-transactional
+    pattern: $SESSION.save(...)
+    message: "Database operation without @Transactional annotation may cause issues."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: correctness
+      frameworks: [hibernate, jpa]
+
+  # Best practices
+  - id: java-system-out-println
+    pattern-either:
+      - pattern: System.out.println(...)
+      - pattern: System.err.println(...)
+    message: "Avoid System.out.println in production code. Use proper logging instead."
+    languages: [java]
+    severity: INFO
+    metadata:
+      category: best-practice
+
+  - id: java-magic-numbers
+    pattern-either:
+      - pattern: |
+          if ($VAR == 200) { ... }
+      - pattern: |
+          return 404;
+      - pattern: |
+          throw new RuntimeException("Error " + 500);
+    message: "Magic number detected. Consider using named constants."
+    languages: [java]
+    severity: INFO
+    metadata:
+      category: maintainability
+
+  - id: java-deprecated-methods
+    pattern-either:
+      - pattern: new Date($YEAR, $MONTH, $DAY)
+      - pattern: $DATE.getYear()
+      - pattern: $DATE.getMonth()
+    message: "Deprecated Date methods. Use LocalDate or Instant from java.time package."
+    languages: [java]
+    severity: WARNING
+    metadata:
+      category: maintainability
+
+# Paths to exclude from scanning
+paths:
+  exclude:
+    - "*/target/*"
+    - "*/build/*"
+    - "*/node_modules/*"
+    - "*.class"
+    - "*/test-output/*"
+    - "htmlReport/*"
+    - "lib/*"
