@@ -31,8 +31,6 @@ jobs:
         config: .semgrep.yml
         # Upload results to GitHub Security tab
         publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-        publishDeployment: 1
-        generateSarif: "1"
       env:
         # Optional: Set to get more verbose output
         SEMGREP_VERBOSE: "false"
