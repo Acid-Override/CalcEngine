@@ -1,9 +1,12 @@
 package com.playground.PhoneNumber;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class PhoneNumber {
 
     private static final Map<Integer, List<String>> dictionary = new HashMap<>();
@@ -20,7 +23,7 @@ public class PhoneNumber {
     }
 
     public String convertPhoneNumber(String phoneNumber) {
-        System.out.println("Phone number: " + phoneNumber);
+        log.info("Phone number: " + phoneNumber);
         validatePhoneNumber(phoneNumber);
 
         StringBuilder sb = new StringBuilder();
@@ -39,7 +42,7 @@ public class PhoneNumber {
                 });
         }
 
-        System.out.println("Letters: " + sb);
+        log.info("Letters: " + sb);
         return sb.toString();
     }
 

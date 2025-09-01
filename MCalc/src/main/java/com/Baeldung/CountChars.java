@@ -1,29 +1,26 @@
 package com.Baeldung;
 
-// https://www.baeldung.com/java-count-chars
-
-// import commons.lang.StringUtils;
-
-//import org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 
 
 
+@Slf4j
 public class CountChars {
 
     static String someString = "elephant";
 
     public static void main (String... args) {
         long count = someString.chars().filter(ch -> ch == 'e').count();
-        System.out.println(count);
+        log.info("Count:{}", count);
 
         long count2 = someString.codePoints().filter(ch -> ch == 'e').count();
-        System.out.println(count2);
+        log.info("Count2:{}", count2);
 
 //        int count3 = StringUtils.countMatches(someString, "e");
-//        System.out.println(count3);
+//        log.info(count3);
 //
 //        String reverseSomeString = StringUtils.reverse(someString);
-//        System.out.println(reverseSomeString + " " + someString);
+//        log.info(reverseSomeString + " " + someString);
 
     }
 

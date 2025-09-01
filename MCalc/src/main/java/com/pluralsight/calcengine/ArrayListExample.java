@@ -1,7 +1,10 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 
+@Slf4j
 public class ArrayListExample {
 
     public static void main(String[] args) {
@@ -17,9 +20,8 @@ public class ArrayListExample {
         testList.set(2, "BoB");
 
         int size = testList.size();
-        System.out.println(size);
+        log.info(String.valueOf(size));
 
-        System.out.println(testList.toString()
-        );
+        log.info("TestList:{}",testList);
     }
 }

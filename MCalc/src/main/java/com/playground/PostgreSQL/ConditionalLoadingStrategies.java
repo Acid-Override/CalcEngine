@@ -71,10 +71,10 @@ public class ConditionalLoadingStrategies {
             
             // Scenario B: Need customers with order summary (e.g., dashboard)
             log.info("📊 Scenario B: Loading customers with order counts");
-            List<Object[]> customerSummaries = loadCustomersWithOrderCounts(session);
-            for (Object[] summary : customerSummaries) {
-                String name = (String) summary[0];
-                Long orderCount = (Long) summary[1];
+            List<jakarta.persistence.Tuple> customerSummaries = loadCustomersWithOrderCounts(session);
+            for (jakarta.persistence.Tuple summary : customerSummaries) {
+                String name = summary.get("customerName", String.class);
+                Long orderCount = summary.get("orderCount", Long.class);
                 log.info("📊 {} has {} orders", name, orderCount);
             }
             
@@ -270,17 +270,17 @@ public class ConditionalLoadingStrategies {
         log.info("🔄 Pre-loaded {} orders for {} customers", orders.size(), customerIds.size());
     }
 
-    private static List<Object[]> loadCustomersWithOrderCounts(Session session) {
+    private static List<jakarta.persistence.Tuple> loadCustomersWithOrderCounts(Session session) {
         CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
+        CriteriaQuery<jakarta.persistence.Tuple> query = cb.createTupleQuery();
         Root<Customer> customerRoot = query.from(Customer.class);
         
         var orderJoin = customerRoot.join(Customer_.orders, jakarta.persistence.criteria.JoinType.LEFT);
         
-        query.multiselect(
-                customerRoot.get(Customer_.name),
-                cb.count(orderJoin.get(Order_.id))
-        ).where(cb.isFalse(customerRoot.get(Customer_.deleted)))
+        query.select(cb.tuple(
+                customerRoot.get(Customer_.name).alias("customerName"),
+                cb.count(orderJoin.get(Order_.id)).alias("orderCount")
+        )).where(cb.isFalse(customerRoot.get(Customer_.deleted)))
          .groupBy(customerRoot.get(Customer_.id), customerRoot.get(Customer_.name));
         
         return session.createQuery(query).getResultList();

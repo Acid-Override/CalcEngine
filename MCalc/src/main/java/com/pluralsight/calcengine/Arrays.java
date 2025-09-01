@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Arrays {
 
     public static void main(String[] args) {
@@ -15,15 +18,15 @@ public class Arrays {
         float result = 0.0f;
 
         for (float theVal : theVals) {
-            System.out.println(theVal);
+            log.info(String.valueOf(theVal));
             result += theVal;
         }
-        System.out.println("The result is: " + result);
+        log.info("The result is: " + result);
     }
 
     public static void helperFunc(float[] arr) {
         for (float i : arr) {
-            System.out.println(i);
+            log.info(String.valueOf(i));
 
         }
 

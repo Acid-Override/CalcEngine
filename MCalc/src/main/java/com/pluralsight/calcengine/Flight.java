@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Flight {
     //setting passengers and seats to private protects state
     // only public methods may modify state
@@ -20,7 +23,7 @@ public class Flight {
     }
 
     private void handleTooMany() {
-        System.out.println("Too many passengers");
+        log.info("Too many passengers");
     }
     public static int getAllPassengers() {
         return allPassengers;

@@ -1,5 +1,8 @@
 package com.playground.BinaryTree;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -7,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+@Slf4j
+@Data
 public class BinarySearchTree {
 
     private Node root;
@@ -16,20 +21,6 @@ public class BinarySearchTree {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public BinarySearchTree () {}
-
-    public Node getRoot() {
-        return root;
-    }
-    public void setRoot(Node root) {
-        this.root = root;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-    public void setSize(Integer size) {
-        this.size = size;
-    }
 
     public void insert(Integer val)
     {
@@ -66,12 +57,12 @@ public class BinarySearchTree {
             return;
         }
         inorderScan(node.getLeft());
-        System.out.println(node.getValue());
+        log.info("Node Value:{}", node.getValue());
         inorderScan(node.getRight());
     }
 
-    public Node deleteLeaf(Integer val) {
-        return inorderSearchAndDeleteLeaf(getRoot(), val);
+    public void deleteLeaf(Integer val) {
+        inorderSearchAndDeleteLeaf(getRoot(), val);
     }
 
     private Node inorderSearchAndDeleteLeaf(Node node, Integer val) {
@@ -101,23 +92,22 @@ public class BinarySearchTree {
 
     public int sumLeaves(){
         buildLeafList(getRoot());
-        System.out.println(leaves.toString());
+        log.info(leaves.toString());
         return leaves.stream().reduce(0, Integer::sum);
     }
 
-    public Node buildLeafList(Node node) {
+    public void buildLeafList(Node node) {
 
         if (null == node)
-            return null;
+            return;
 
         if(node.getLeft() == null && node.getRight() == null) {
             leaves.add(node.getValue());
-            return null;
+            return;
         }
         buildLeafList(node.getLeft());
         buildLeafList(node.getRight());
 
-        return null;
     }
 
     public Integer sum(){

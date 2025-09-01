@@ -5,9 +5,11 @@ import com.playground.PostgreSQL.entities.Order;
 import com.playground.PostgreSQL.entities.OrderItem;
 import com.playground.PostgreSQL.entities.Product;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+@Slf4j
 public class HibernateUtil {
 
     @Getter
@@ -24,7 +26,7 @@ public class HibernateUtil {
                     .addAnnotatedClass(OrderItem.class)
                     .buildSessionFactory();
         } catch (Throwable ex) {
-            System.err.println("Initial SessionFactory creation failed: " + ex);
+            log.error("Initial SessionFactory creation failed: {}", ex.getMessage(), ex);
             throw new ExceptionInInitializerError(ex);
         }
     }

@@ -18,14 +18,14 @@ public class Control_Flow {
         for (int i = 0; i < arrOfInts.length; i++) {
             for (int j = 0; j < arrOfInts[i].length; j++) {
                 if (arrOfInts[i][j] == searchFor) {
-                    System.out.println("Found " + searchFor + " at " + i + ", " + j);
+                    log.info("Found " + searchFor + " at " + i + ", " + j);
                     foundIt = true;
                     break search;
                 }
             }
         }
         if (!foundIt) {
-            System.out.println("Could not find " + searchFor);
+            log.info("Could not find " + searchFor);
         }
     }
 

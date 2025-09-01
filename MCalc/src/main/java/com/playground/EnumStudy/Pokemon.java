@@ -1,5 +1,8 @@
 package com.playground.EnumStudy;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public enum Pokemon {
     PIKACHU("Thunder Shock"),
     CHARMANDER("Scratch"),
@@ -12,7 +15,7 @@ public enum Pokemon {
     }
 
     public String getAttack() {
-        System.out.println(attack);
+        log.info(attack);
         return attack;
     }
 }

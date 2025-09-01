@@ -1,13 +1,16 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class HowManyNumbers {
 
     public static void main(String... args) {
         List<Long> result = findAll(10, 3);
-        System.out.println(result);
+        log.info("How Many Numbers Result:{}", result);
 
     }
 

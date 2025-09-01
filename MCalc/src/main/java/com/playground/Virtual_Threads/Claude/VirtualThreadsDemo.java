@@ -1,5 +1,7 @@
 package com.playground.Virtual_Threads.Claude;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.CountDownLatch;
@@ -8,14 +10,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
+@Slf4j
 public class VirtualThreadsDemo {
 
     private static final int TASK_COUNT = 10_000;
     private static final int SLEEP_DURATION_MS = 100;
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Java " + Runtime.version() + " Virtual Threads Demo");
-        System.out.println("======================================");
+        log.info("Java " + Runtime.version() + " Virtual Threads Demo");
+        log.info("======================================");
 
         // Demo with platform threads
         runPlatformThreadsDemo();
@@ -28,7 +31,7 @@ public class VirtualThreadsDemo {
     }
 
     private static void runPlatformThreadsDemo() throws Exception {
-        System.out.println("\nRunning demo with platform threads...");
+        log.info("\nRunning demo with platform threads...");
 
         Instant start = Instant.now();
 
@@ -63,15 +66,15 @@ public class VirtualThreadsDemo {
             Instant end = Instant.now();
             Duration duration = Duration.between(start, end);
 
-            System.out.println("Platform threads execution completed.");
-            System.out.println("Tasks: " + TASK_COUNT);
-            System.out.println("Max concurrent active threads: " + maxActiveThreads.get());
-            System.out.println("Total execution time: " + duration.toMillis() + "ms");
+            log.info("Platform threads execution completed.");
+            log.info("Tasks: " + TASK_COUNT);
+            log.info("Max concurrent active threads: " + maxActiveThreads.get());
+            log.info("Total execution time: " + duration.toMillis() + "ms");
         }
     }
 
     private static void runVirtualThreadsDemo() throws Exception {
-        System.out.println("\nRunning demo with virtual threads...");
+        log.info("\nRunning demo with virtual threads...");
 
         Instant start = Instant.now();
 
@@ -106,15 +109,15 @@ public class VirtualThreadsDemo {
             Instant end = Instant.now();
             Duration duration = Duration.between(start, end);
 
-            System.out.println("Virtual threads execution completed.");
-            System.out.println("Tasks: " + TASK_COUNT);
-            System.out.println("Max concurrent active threads: " + maxActiveThreads.get());
-            System.out.println("Total execution time: " + duration.toMillis() + "ms");
+            log.info("Virtual threads execution completed.");
+            log.info("Tasks: " + TASK_COUNT);
+            log.info("Max concurrent active threads: " + maxActiveThreads.get());
+            log.info("Total execution time: " + duration.toMillis() + "ms");
         }
     }
 
     private static void compareThreadCreationPerformance() {
-        System.out.println("\nComparing thread creation performance...");
+        log.info("\nComparing thread creation performance...");
 
         // Create 100,000 platform threads
         Instant platformStart = Instant.now();
@@ -134,8 +137,8 @@ public class VirtualThreadsDemo {
                         }
                     });
         } catch (OutOfMemoryError e) {
-            System.out.println("Platform threads creation failed with OutOfMemoryError after "
-                    + platformCounter.get() + " threads");
+            log.warn("Platform threads creation failed with OutOfMemoryError after {} threads", 
+                    platformCounter.get());
         }
 
         Instant platformEnd = Instant.now();
@@ -160,12 +163,11 @@ public class VirtualThreadsDemo {
         Instant virtualEnd = Instant.now();
         Duration virtualDuration = Duration.between(virtualStart, virtualEnd);
 
-        System.out.println("Platform threads created: " + platformCounter.get());
-        System.out.println("Platform threads creation time: " + platformDuration.toMillis() + "ms");
-        System.out.println("Virtual threads created: " + virtualCounter.get());
-        System.out.println("Virtual threads creation time: " + virtualDuration.toMillis() + "ms");
-        System.out.println("Virtual threads are approximately " +
-                (double) platformDuration.toMillis() / virtualDuration.toMillis() +
-                "x faster to create and start.");
+        log.info("Platform threads created: " + platformCounter.get());
+        log.info("Platform threads creation time: " + platformDuration.toMillis() + "ms");
+        log.info("Virtual threads created: " + virtualCounter.get());
+        log.info("Virtual threads creation time: " + virtualDuration.toMillis() + "ms");
+        log.info("Virtual threads are approximately {}x faster to create and start.",
+                String.format("%.2f", (double) platformDuration.toMillis() / virtualDuration.toMillis()));
     }
 }

@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 abstract class StaticInitializerTest {
 
     //demo of a static initializer
@@ -21,7 +24,7 @@ abstract class StaticInitializerTest {
 
       //initializers
       static {
-          System.out.println("I am a static initializer that is used for all StaticInitializerTests.");
+          log.info("I am a static initializer that is used for all StaticInitializerTests.");
       }
 
 

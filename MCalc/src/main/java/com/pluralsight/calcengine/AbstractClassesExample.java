@@ -1,28 +1,30 @@
 package com.pluralsight.calcengine;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 abstract class AbstractClassesExample {
-    private int abstractClassInt;
     public String str = "Abstract Class String";
 
     public AbstractClassesExample() {}
     public AbstractClassesExample (int abstractClassInt) {
-        this.abstractClassInt = abstractClassInt;
+        log.info("AbstractClassInt={}", abstractClassInt);
     }
 
     public void method () {
-        System.out.println("I am the abstract class method");
+        log.info("I am the abstract class method");
     }
-    public void setStr (String str) {
-        this.str = str;
-    }
-    public String getStr () {
-        return this.str;
-    }
+
 }
 
+@Slf4j
 class First extends AbstractClassesExample {
+    @Setter
+    @Getter
     private int number;
-    private String firstStr = "Hello World";
+    private final static String firstStr = "Hello World";
     int[] numArray = {1, 2, 3, 4, 5};
 
     public First(){
@@ -41,30 +43,21 @@ class First extends AbstractClassesExample {
 
     @Override
     public void method() {
-        System.out.println("Method in First object which overrides Abstract Class");
-        System.out.println(str);
-        System.out.println(firstStr);
+        log.info("Method in First object which overrides Abstract Class");
+        log.info(str);
+        log.info(firstStr);
 
         try {
-            System.out.println(numArray[10]);
+            log.info(String.valueOf(numArray[10]));
         } catch (Exception e) {
-            System.out.println(e);
+            log.info(String.valueOf(e));
         } finally {
-            System.out.println("Try catch is over");
+            log.info("Try catch is over");
         }
-        System.out.println(numArray[10]);
+        log.info(String.valueOf(numArray[10]));
     }
 
 
-
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
 }
 
 

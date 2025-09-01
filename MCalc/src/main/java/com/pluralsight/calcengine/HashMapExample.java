@@ -1,7 +1,10 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 
+@Slf4j
 public class HashMapExample {
 
     HashMap<Integer, Integer> hashMap = new HashMap<>();
@@ -17,7 +20,7 @@ public class HashMapExample {
         int result = hashMapExample.sum(10);
 
         //int result = sum(10);
-        System.out.println(result);
+        log.info(String.valueOf(result));
         }
         public int sum(int k) {
             //if k is in hashmap

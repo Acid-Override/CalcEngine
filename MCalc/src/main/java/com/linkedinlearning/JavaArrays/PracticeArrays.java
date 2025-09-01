@@ -1,32 +1,33 @@
 package com.linkedinlearning.JavaArrays;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
 
+@Slf4j
 public class PracticeArrays {
 
     public static void main(String[] args) {
         double[] arr = {92, 12, 38, 74};
 
         DoubleStream doubleStream = Arrays.stream(arr).map(x -> x + 2);
-        doubleStream.forEach(x -> System.out.println(x));
+        doubleStream.forEach(x -> log.info(String.valueOf(x)));
         Arrays.sort(arr);
-        Arrays.stream(arr).forEach(System.out::println);
+//        Arrays.stream(arr).forEach(System.out::println);
 
         int [] nums = new int[2];
-        Arrays.stream(nums).forEach(x -> System.out.println(x));
+        Arrays.stream(nums).forEach(x -> log.info(String.valueOf(x)));
 
         //double[] lotteryNums = new double[5];
         //primative data types initialize to zero
         //reference data types initialize to null
         double[] lotteryNums = {45, 92, 38, 33, 21};
-        System.out.println(lotteryNums[2]);
+        log.info(String.valueOf(lotteryNums[2]));
 
         lotteryNums[2] = 40;
-        System.out.println(lotteryNums[2]);
+        log.info(String.valueOf(lotteryNums[2]));
     }
 
     public static Integer findSecondSmallestItem2 (Integer[] arr ) {

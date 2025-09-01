@@ -1,7 +1,10 @@
 package com.linkedinlearning.JavaArrays;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
+@Slf4j
 public class PrintTriangle {
 
     public static void printTriangle(Object[] arr) {
@@ -14,9 +17,9 @@ public class PrintTriangle {
             for (int j = 0; j <= i; j++ ) {
                 System.out.print(arr[j]);
             }
-            System.out.println("");
+            log.info("");
         }
-        System.out.println("");
+        log.info("");
 
     }
 

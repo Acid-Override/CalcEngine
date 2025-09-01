@@ -1,5 +1,8 @@
 package com.DailyByte.NestedArray;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 class NestedArray {
 
     /*
@@ -38,7 +41,7 @@ class NestedArray {
 
 
     public static void main(String[] args) {
-        System.out.println("Build solution here");
+        log.info("Build solution here");
 
         recursivePrinter(nestedArray, "");
     }
@@ -53,9 +56,9 @@ class NestedArray {
         for (int i = 0; i < valueArray.length; i++) {
             if (valueArray[i] instanceof String) {
                 if (!topIndex.isEmpty()) {
-                    System.out.println((topIndex + "." + i) + ": " + valueArray[i]);
+                    log.info((topIndex + "." + i) + ": " + valueArray[i]);
                 } else {
-                    System.out.println((i + "") + ": " + valueArray[i]);
+                    log.info((i + "") + ": " + valueArray[i]);
                 }
 
             } else {

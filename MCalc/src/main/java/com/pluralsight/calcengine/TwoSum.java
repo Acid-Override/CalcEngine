@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TwoSum {
 
     public TwoSum() {
@@ -20,7 +23,7 @@ public class TwoSum {
                 result[0] = j;
                 result[1] = index1;
                 String str = String.format("%d and %d", result[0], result[1]);
-                System.out.println(str);
+                log.info(str);
                 return result;
             }
         }

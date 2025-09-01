@@ -1,24 +1,26 @@
 package com.pluralsight.calcengine;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
-import org.junit.jupiter.api.Test;
-
+@Slf4j
 class BinarySearchTree {
 
-    @Test
-    public void firstTest() {
-        Node node = new Node(10, new Node (20), new Node(30));
+//    @Test
+//    public void firstTest() {
+//        Node node = new Node(10, new Node (20), new Node(30));
+//
+//        log.info(String.valueOf(node.value));
+//        log.info(node.getLeft());
+//        log.info(node.getRight());
+//    }
+//    @Test
+//    public void secondTest() {
+//
+//    }
 
-        System.out.println(node.value);
-        System.out.println(node.getLeft());
-        System.out.println(node.getRight());
-    }
-    @Test
-    public void secondTest() {
-
-    }
-
-    class Node {
+    @Data
+    static class Node {
         private int value;
         private Node left;
         private Node right;
@@ -34,24 +36,6 @@ class BinarySearchTree {
             this.right = right;
         }
 
-        public int getValue() {
-            return value;
-        }
-        public void setValue(int value) {
-            this.value = value;
-        }
-        public Node getLeft() {
-            return left;
-        }
-        public void setLeft(Node left) {
-            this.left = left;
-        }
-        public Node getRight() {
-            return right;
-        }
-        public void setRight(Node right) {
-            this.right = right;
-        }
     }
 
     Node root;
@@ -105,7 +89,7 @@ class BinarySearchTree {
 
         if (root != null ) {
             inorderRec(root.left);
-            System.out.println(root.getValue());
+            log.info(String.valueOf(root.getValue()));
             inorderRec(root.right);
         }
     }

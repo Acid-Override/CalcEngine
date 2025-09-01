@@ -1,30 +1,33 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class BinarySearch {
     public static int search(int[] arr, int target) {
         int min = 0, max = arr.length - 1;
-        int mid = (int) Math.floor( (max + min) / 2 );
+        int mid = (int) Math.floor( (double) (max + min) / 2 );
         int counter = 0;
 
         while ( arr[mid] != target && min < max ) {
             counter++;
-            System.out.println(arr[mid]);
+            log.info(String.valueOf(arr[mid]));
             if ( arr[mid] > target ) {
                 max = mid - 1;
             } else {
                 min = mid + 1;
             }
-            mid = (int) Math.floor((max + min) / 2);
+            mid = (int) Math.floor((double) (max + min) / 2);
         }
-        System.out.println("Total Binary Search hops : " + counter);
+        log.info("Total Binary Search hops : {}", counter);
         return arr[mid] == target ? mid : -1;
     }
     public static Integer recursiveSearch(int[] arr, int target, int min, int max) {
         //int counter = 0;
         if ( max >= min && min < arr.length ) {
-            int mid = (int) Math.floor((max + min) / 2 );
+            int mid = (int) Math.floor((double) (max + min) / 2 );
 
-            System.out.println(arr[mid]);
+            log.info(String.valueOf(arr[mid]));
 
             if ( arr[mid] == target) {
                 return mid;
@@ -49,6 +52,6 @@ public class BinarySearch {
         search(testArr, 1);
 
         int result = recursiveSearch(testArr, 1, 0, testArr.length);
-        System.out.println(result);
+        log.info(String.valueOf(result));
     }
 }

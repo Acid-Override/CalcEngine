@@ -1,5 +1,7 @@
 package com.playground.Virtual_Threads.Claude.KakfaToMongo;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -25,6 +27,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Slf4j
 public class VirtualThreadsKafkaMongoDemo {
 
     private static final String BOOTSTRAP_SERVERS = "localhost:29092";
@@ -39,8 +42,8 @@ public class VirtualThreadsKafkaMongoDemo {
     private static final AtomicInteger processedCount = new AtomicInteger(0);
 
     public static void main(String[] args) {
-        System.out.println("Java " + Runtime.version() + " Virtual Threads Kafka & MongoDB Demo");
-        System.out.println("=========================================================");
+        log.info("Java " + Runtime.version() + " Virtual Threads Kafka & MongoDB Demo");
+        log.info("=========================================================");
 
         // Setup MongoDB client
         MongoClient mongoClient = MongoClients.create(MONGO_CONNECTION_STRING);
@@ -56,11 +59,11 @@ public class VirtualThreadsKafkaMongoDemo {
 
         // Create a virtual thread executor
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
-            System.out.println("Starting to consume messages...");
+            log.info("Starting to consume messages...");
 
             // Register shutdown hook
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                System.out.println("Shutting down...");
+                log.info("Shutting down...");
                 running.set(false);
             }));
 
@@ -78,7 +81,7 @@ public class VirtualThreadsKafkaMongoDemo {
                                 processRecord(message, collection, producer);
                                 latch.countDown();
                             } catch (Exception e) {
-                                System.err.println("Error processing message: " + e.getMessage());
+                                log.error("Error processing message: " + e.getMessage());
                                 e.printStackTrace();
                                 latch.countDown();
                             }
@@ -91,12 +94,12 @@ public class VirtualThreadsKafkaMongoDemo {
                         consumer.commitSync();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
-                        System.err.println("Interrupted while waiting for batch to complete");
+                        log.error("Interrupted while waiting for batch to complete");
                     }
                 }
             }
         } finally {
-            System.out.println("Processed " + processedCount.get() + " messages");
+            log.info("Processed " + processedCount.get() + " messages");
             consumer.close();
             producer.close();
             mongoClient.close();
@@ -111,7 +114,7 @@ public class VirtualThreadsKafkaMongoDemo {
         String userId = record.key();
         String originalMessage = record.value();
 
-        System.out.println("[" + Thread.currentThread() + "] Processing message: " + originalMessage);
+        log.info("[" + Thread.currentThread() + "] Processing message: " + originalMessage);
 
         // Simulate some processing delay
 //        try {
@@ -147,12 +150,12 @@ public class VirtualThreadsKafkaMongoDemo {
 
         producer.send(producerRecord, (metadata, exception) -> {
             if (exception != null) {
-                System.err.println("Error sending enriched message: " + exception.getMessage());
+                log.error("Error sending enriched message: " + exception.getMessage());
                 exception.printStackTrace();
             } else {
                 int count = processedCount.incrementAndGet();
                 if (count % 100 == 0) {
-                    System.out.println("Processed " + count + " messages so far");
+                    log.info("Processed " + count + " messages so far");
                 }
             }
         });
@@ -203,7 +206,7 @@ public class VirtualThreadsKafkaMongoDemo {
                 collection.insertOne(doc);
             }
 
-            System.out.println("Inserted 1000 test users into MongoDB");
+            log.info("Inserted 1000 test users into MongoDB");
         }
 
         public static void generateTestMessages(KafkaProducer<String, String> producer, int count) {
@@ -220,17 +223,17 @@ public class VirtualThreadsKafkaMongoDemo {
 
                 producer.send(record, (metadata, exception) -> {
                     if (exception != null) {
-                        System.err.println("Error sending test message: " + exception.getMessage());
+                        log.error("Error sending test message: " + exception.getMessage());
                     }
                 });
 
                 if (i % 100 == 0) {
-                    System.out.println("Generated " + i + " test messages");
+                    log.info("Generated " + i + " test messages");
                 }
             }
 
             producer.flush();
-            System.out.println("Finished generating " + count + " test messages");
+            log.info("Finished generating " + count + " test messages");
         }
     }
 }

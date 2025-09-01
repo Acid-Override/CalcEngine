@@ -1,30 +1,19 @@
 package com.playground.SinglyLinkedList;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Marker;
+
 import java.util.Objects;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
+@Slf4j
+@Data
 public class SinglyLinkedList {
 
     private Node root;
     private Integer size = 0;
 
-    private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-
-    public Node getRoot() {
-        return root;
-    }
-    public void setRoot(Node root) {
-        this.root = root;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-    public void setSize(Integer size) {
-        this.size = size;
-    }
 
     public void add (Integer val) {
         if (null == root) {
@@ -44,7 +33,7 @@ public class SinglyLinkedList {
     public Integer pop() {
         Integer resultNodeValue;
         if ( null == root) {
-            System.out.println("Unable to POP : Root is NULL.");
+            log.info("Unable to POP : Root is NULL.");
             return null;
         } else if (root.getNode() != null){
             Node currentNode = root;
@@ -62,16 +51,16 @@ public class SinglyLinkedList {
     }
 
     public void printValues() {
-        System.out.println("Current size: " + size);
+        log.info("Current size: " + size);
         Node currentNode = getRoot();
         if(currentNode != null) {
             while(null != currentNode.getNode()) {
-                System.out.println(currentNode.getValue());
+                log.info("Current Node Value:{}", currentNode.getValue());
                 currentNode = currentNode.getNode();
             }
-            System.out.println(currentNode.getValue());
+            log.info("Node Value:{}", currentNode.getValue());
         } else {
-            System.out.println("Root is NULL.");
+            log.info("Root is NULL.");
         }
     }
 
@@ -93,7 +82,7 @@ public class SinglyLinkedList {
 
     public void remove(Integer val) {
         if(null == root) {
-            logger.info("Root is NULL");
+            log.info("Root is NULL");
             return;
         }
         if(Objects.equals(root.getValue(), val)) {
@@ -107,7 +96,7 @@ public class SinglyLinkedList {
             if(!Objects.equals(currentNode.getValue(), val)) {
                 pwg.add(currentNode.getValue());
             } else {
-                logger.log(Level.INFO, "Removing the node : {0}", currentNode);
+                log.info((Marker) Level.INFO, "Removing the node : {}", currentNode);
             }
             currentNode = currentNode.getNode();
         }

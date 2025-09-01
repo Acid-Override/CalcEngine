@@ -1,5 +1,7 @@
 package com.DailyByte.LeastUniqueElements;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.*;
 
 /**
@@ -11,6 +13,7 @@ import java.util.*;
  * nums = [1, 4, 3, 3], k = 2, return 1 (remove 1 and 4 and only one unique integer is left which is 3).
  * https://thedailybyte.dev/solution/348?token=040e5b78445116f8c2b5d40006b5c9b03c1eb7e56ae90c00da173ad0337136a7
  */
+@Slf4j
 public class LeastUniqueElements {
 
     private List<Integer> nums = new ArrayList<>();
@@ -28,11 +31,11 @@ public class LeastUniqueElements {
 
 
         hashMap.entrySet().forEach(System.out::println);
-        System.out.println("FINISHED");
+        log.info("FINISHED");
 
         List<Integer> sorted = new ArrayList<>(hashMap.keySet());
         Collections.sort(sorted, (a, b) -> hashMap.get(a) - hashMap.get(b));
-        System.out.println(sorted.toString());
+        log.info(sorted.toString());
 
         //no need to change/modify map or list (this only increase time/complexity)
         int index = 0;

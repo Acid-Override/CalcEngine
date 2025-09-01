@@ -1,5 +1,7 @@
 package com.DailyByte.RollTheDice;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * You are given N dice, where each die has max faces (with values one through max, and an integer, target.
  * Return the total number of ways you can roll the N dice such that the sum of all their face-up values equals the given target.
@@ -11,10 +13,11 @@ package com.DailyByte.RollTheDice;
  *
  * N = 2, max = 6, target = 4, return 3.
  */
+@Slf4j
 public class RollTheDice {
 
-    private int N;
-    private int max;
+    private final int N;
+    private final int max;
 
     public RollTheDice(int n, int max) {
         N = n;
@@ -51,7 +54,7 @@ public class RollTheDice {
             }
         }
 
-        System.out.println(dp[N][target]);
+        log.info("{}", dp[N][target]);
         return dp[N][target];
     }
 

@@ -1,16 +1,19 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class BinaryArrayToNumber {
 
     public static void main(String[] args) {
-        System.out.println(convertBinaryArrayToNumber(new ArrayList<>( Arrays.asList(0, 1, 1, 0) ) )); //11
-        System.out.println(convertBinaryArrayToInt(new int[]{1, 0, 0, 1}));
-        System.out.println(convertBinaryArrayToIntStreamAndReduce(Arrays.asList(0, 1, 1, 0) ));
+        log.info(String.valueOf(convertBinaryArrayToNumber(new ArrayList<>( Arrays.asList(0, 1, 1, 0) ) ))); //11
+        log.info(String.valueOf(convertBinaryArrayToInt(new int[]{1, 0, 0, 1})));
+        log.info(String.valueOf(convertBinaryArrayToIntStreamAndReduce(Arrays.asList(0, 1, 1, 0) )));
     }
 
 
@@ -34,7 +37,7 @@ public class BinaryArrayToNumber {
     }
 
     public static int convertBinaryArrayToIntStreamAndReduce(List<Integer> binary) {
-        return binary.stream().reduce((x, y) -> x * 2 + y).get();
+        return binary.stream().reduce((x, y) -> x * 2 + y).orElseThrow();
 
     }
 

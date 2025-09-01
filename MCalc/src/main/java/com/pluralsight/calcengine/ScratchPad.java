@@ -1,11 +1,8 @@
 package com.pluralsight.calcengine;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.function.DoubleToIntFunction;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ScratchPad {
 
 //    public String getNameQuick() throws IOException {
@@ -37,8 +34,8 @@ public class ScratchPad {
 
     public static void main(String... args) {
         Long a = null;
-        Long b = 999999999l;
+        Long b = 999999999L;
 
-        System.out.println(Math.min(a, b));
+//        log.info(Math.min(a, b));
     }
 }
