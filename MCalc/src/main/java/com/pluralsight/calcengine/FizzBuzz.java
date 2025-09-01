@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class FizzBuzz {
     public static void main(String[] args) {
         String result;
@@ -15,10 +18,10 @@ public class FizzBuzz {
             }
 
             //find a better return statement
-            if ( result.length() > 0 ){
-                System.out.println(result);
+            if (!result.isEmpty()){
+                log.info(result);
             } else {
-                System.out.println(i);
+                log.info(String.valueOf(i));
             }
         }
     }

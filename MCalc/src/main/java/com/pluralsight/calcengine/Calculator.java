@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Calculator {
 
 
@@ -28,21 +31,22 @@ public class Calculator {
             case '-' : this.result = leftVal - rightVal; break;
             case '*' : this.result = leftVal * rightVal; break;
             case '/' : this.result = rightVal != 0 ? leftVal / rightVal : 0; break;
-            default : System.out.println("Invalid letter: " + this.opCode);
+            default :
+                log.info("Invalid letter: {}", this.opCode);
         }
         return result;
 
     }
 
     public void printResult () {
-        System.out.println(this.result);
+        log.info(String.valueOf(this.result));
     }
 
     public static void setAllInstances() {
         allInstances++;
     }
     public void getAllInstances() {
-        System.out.println(allInstances);
+        log.info(String.valueOf(allInstances));
     }
 
 }

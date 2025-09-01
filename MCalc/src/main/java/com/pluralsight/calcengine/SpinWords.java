@@ -1,9 +1,12 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class SpinWords {
 
     public static void main (String[] args) {
-        System.out.println(spinWords("This is another test"));
+        log.info(spinWords("This is another test"));
     }
 
     public static String spinWords (String str) {

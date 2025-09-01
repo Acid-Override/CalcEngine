@@ -1,5 +1,7 @@
 package com.playground.Virtual_Threads.Claude.KakfaToMongo;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 /**
  * Utility class to generate test data for the Virtual Threads Kafka MongoDB Demo
  */
+@Slf4j
 public class TestDataGenerator {
 
     private static final String BOOTSTRAP_SERVERS = "localhost:29092, localhost:29093, localhost:29094";
@@ -20,14 +23,14 @@ public class TestDataGenerator {
     private static final String MONGO_DATABASE = "demo";
 
     public static void main(String[] args) {
-        System.out.println("Test Data Generator for Virtual Threads Kafka MongoDB Demo");
-        System.out.println("==========================================================");
+        log.info("Test Data Generator for Virtual Threads Kafka MongoDB Demo");
+        log.info("==========================================================");
 
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("\nSelect an option:");
-            System.out.println("1. Generate MongoDB test data");
-            System.out.println("2. Send test messages to Kafka");
-            System.out.println("3. Do both");
+            log.info("\nSelect an option:");
+            log.info("1. Generate MongoDB test data");
+            log.info("2. Send test messages to Kafka");
+            log.info("3. Do both");
             System.out.print("\nEnter your choice (1-3): ");
 
             int choice = scanner.nextInt();
@@ -46,11 +49,11 @@ public class TestDataGenerator {
             }
         }
 
-        System.out.println("Data generation complete!");
+        log.info("Data generation complete!");
     }
 
     private static void generateMongoData() {
-        System.out.println("\nGenerating MongoDB test data...");
+        log.info("\nGenerating MongoDB test data...");
 
         try (MongoClient mongoClient = MongoClients.create(MONGO_CONNECTION_STRING)) {
             MongoDatabase database = mongoClient.getDatabase(MONGO_DATABASE);
@@ -59,7 +62,7 @@ public class TestDataGenerator {
     }
 
     private static void generateKafkaMessages(int count) {
-        System.out.println("\nSending " + count + " test messages to Kafka...");
+        log.info("\nSending " + count + " test messages to Kafka...");
 
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);

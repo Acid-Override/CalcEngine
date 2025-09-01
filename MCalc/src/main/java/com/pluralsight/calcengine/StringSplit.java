@@ -1,17 +1,20 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class StringSplit {
 
     public static void main(String[] args) {
         String[] result = solution("abcdefg");
         for (String item : result) {
-            System.out.println(item);
+            log.info(item);
         }
-        System.out.println(Arrays.toString(result));
+        log.info(Arrays.toString(result));
 
     }
 

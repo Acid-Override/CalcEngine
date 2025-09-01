@@ -1,24 +1,27 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class StringEquality {
 
     public static void main(String[] args){
-        System.out.println("String Equality, double quotes is String, single quotes is Char");
+        log.info("String Equality, double quotes is String, single quotes is Char");
         String str1 = "Hello " + "World!";
         int num = 5;
-        System.out.println(str1 + num);
+        log.info(str1 + num);
 
         String str2 = "Hello " + "World!";
 
         //Can't use == to compare strings, str1 & str2 are reference values
 //        if ( str1 == str2 ) {
-//            System.out.println("String str1 is equal to str2");
+//            log.info("String str1 is equal to str2");
 //        } else {
-//        System.out.println("String str1 IS NOT EQUAL to str2");
+//        log.info("String str1 IS NOT EQUAL to str2");
 //        }
 
         if (str1.equals(str2)) {
-            System.out.println("They are EQUAL! :)");
+            log.info("They are EQUAL! :)");
         }
         String[] stringArr = str1.split(" ");
 
@@ -32,7 +35,7 @@ public class StringEquality {
         String s4 = str2.intern();
 
         if ( s4 == s3 ) {
-            System.out.println("THEY ARE EQUAL !!");
+            log.info("THEY ARE EQUAL !!");
         }
 
 
@@ -46,19 +49,19 @@ public class StringEquality {
         //String conversion : valueOf
 
         str1 = str1.concat("Ada Lovelace is a legend.");
-        System.out.println(str1);
+        log.info(str1);
         if ( str1.contains("!")){
         int index = str1.indexOf("!");
         String sub = str1.substring(index + 1);
-        System.out.println(sub);
+        log.info(sub);
         }
 
         String strNum = String.valueOf(num);
-        System.out.println("My new string " + strNum);
+        log.info("My new string " + strNum);
 
         //implicit conversion
         int i = 4, j = 10;
-        System.out.println("My two numbers are : " + i + " & " + j + ".");
+        log.info("My two numbers are : " + i + " & " + j + ".");
 
     }
 }

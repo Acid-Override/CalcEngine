@@ -1,5 +1,7 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -8,6 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+@Slf4j
 public class GetHumanlyReadableFormat {
 
     public static final TimeZone TIME_ZONE = TimeZone.getTimeZone("American/Eastern");
@@ -18,14 +21,14 @@ public class GetHumanlyReadableFormat {
         GetHumanlyReadableFormat gHRF = new GetHumanlyReadableFormat();
   
 
-//        System.out.println(gHRF.getHumanlyReadableFormat(new Date()));
-//        System.out.println(gHRF.getHumanlyReadableFormat(Instant.now()));
-//        System.out.println(gHRF.getHumanlyReadableFormat(-1990137600000L));
+//        log.info(gHRF.getHumanlyReadableFormat(new Date()));
+//        log.info(gHRF.getHumanlyReadableFormat(Instant.now()));
+//        log.info(gHRF.getHumanlyReadableFormat(-1990137600000L));
 
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(1912, Calendar.JUNE, 23);
-        System.out.println(getHumanlyReadableFormat(calendar));
+        log.info(getHumanlyReadableFormat(calendar));
     }
 
 

@@ -1,5 +1,7 @@
 package com.playground.PostgreSQL;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.playground.PostgreSQL.entities.Customer;
 import com.playground.PostgreSQL.repository.CustomerRepository;
 import com.playground.PostgreSQL.repository.CustomerSearchCriteria;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 public class HibernateExample {
     public static void main(String[] args) {
         try {
@@ -24,22 +27,22 @@ public class HibernateExample {
 //            customerRepository.save(customer2);
 //            customerRepository.save(customer3);
 //
-//            System.out.println("Customers saved successfully!");
+//            log.info("Customers saved successfully!");
 
             // Find all customers
             List<Customer> allCustomers = customerRepository.findAll();
-            System.out.println("\nAll customers:");
-            allCustomers.forEach(c -> System.out.println(" - " + c.getName() + " (" + c.getEmail() + ")"));
+            log.info("\nAll customers:");
+            allCustomers.forEach(c -> log.info(" - " + c.getName() + " (" + c.getEmail() + ")"));
 
             // Find customers by name containing "oh"
             List<Customer> customersWithNameContainingOh = customerRepository.findByNameContaining("oh");
-            System.out.println("\nCustomers with name containing 'oh':");
-            customersWithNameContainingOh.forEach(c -> System.out.println(" - " + c.getName() + " (" + c.getEmail() + ")"));
+            log.info("\nCustomers with name containing 'oh':");
+            customersWithNameContainingOh.forEach(c -> log.info(" - " + c.getName() + " (" + c.getEmail() + ")"));
 
             // Find customer by email
             Optional<Customer> customerByEmail = customerRepository.findByEmail("jane.smith@example.com");
-            System.out.println("\nCustomer by email:");
-            customerByEmail.ifPresent(c -> System.out.println(" - " + c.getName() + " (" + c.getEmail() + ")"));
+            log.info("\nCustomer by email:");
+            customerByEmail.ifPresent(c -> log.info(" - " + c.getName() + " (" + c.getEmail() + ")"));
 
             // Complex search with multiple criteria
             CustomerSearchCriteria criteria = new CustomerSearchCriteria()
@@ -49,8 +52,8 @@ public class HibernateExample {
                     .withSortAscending(false);
 
             List<Customer> searchResults = customerRepository.search(criteria);
-            System.out.println("\nSearch results for customers with name containing 'o', created in the last day, sorted by name:");
-            searchResults.forEach(c -> System.out.println(" - " + c.getName() + " (" + c.getEmail() + ")"));
+            log.info("\nSearch results for customers with name containing 'o', created in the last day, sorted by name:");
+            searchResults.forEach(c -> log.info(" - " + c.getName() + " (" + c.getEmail() + ")"));
 
         } finally {
             // Shutdown Hibernate

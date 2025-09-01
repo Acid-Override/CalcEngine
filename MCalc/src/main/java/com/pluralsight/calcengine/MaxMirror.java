@@ -1,8 +1,11 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
 
+@Slf4j
 public class MaxMirror {
 
     public static void main(String... args) {
@@ -41,7 +44,7 @@ public class MaxMirror {
 
            }
        }
-        System.out.println(result);
+        log.info(String.valueOf(result));
         return result;
     }
 }

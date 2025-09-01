@@ -1,5 +1,7 @@
 package com.DailyByte.UpdateNumbers;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.Arrays;
 
@@ -9,6 +11,7 @@ import java.util.Arrays;
  *
  * nums = [2, 2, 1, 3], return 2 (increment one of the twos twice or increment one 2 once and the 3 once).
  */
+@Slf4j
 public class UpdateNumbers extends Object {
 
     private Integer count = 0;
@@ -50,7 +53,7 @@ public class UpdateNumbers extends Object {
             previous = Math.max(previous, num) + 1;
         }
 
-        System.out.println("Solution :" + operations);
+        log.info("Solution :" + operations);
         return operations;
     }
 }

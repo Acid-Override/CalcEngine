@@ -1,22 +1,27 @@
 package com.pluralsight.calcengine.leetcode;
 
-import org.junit.jupiter.api.Test;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
-import java.awt.*;
+import java.awt.Point;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 
+@Slf4j
 public class DistanceSet {
 
    // [(1, 1), (-1, -1), (3, 4), (6, 1), (-1, -6), (-4, -3)]
     // return [(-1, -1), (1, 1)]
 
-    @Test public void firstTest() {
-        int[][] test = {{1,1}, {-1, -1}, {3, 4}, {6, 1}, {-4, -4}};
-        DistanceSet ds = new DistanceSet();
-        //ds.distanceSet(test);
-        ds.distanceSet(arrayOfPoints());
-    }
+//    @Test public void firstTest() {
+//        int[][] test = {{1,1}, {-1, -1}, {3, 4}, {6, 1}, {-4, -4}};
+//        DistanceSet ds = new DistanceSet();
+//        //ds.distanceSet(test);
+//        ds.distanceSet(arrayOfPoints());
+//    }
 
     private Point[] arrayOfPoints(){
         Point[] arrayList = new Point[]{
@@ -25,6 +30,7 @@ public class DistanceSet {
                 new Point(6, 1),
                 new Point(-4, -3)
         };
+        log.info("Array of Points:{}", Arrays.stream(arrayList).toArray());
         return arrayList;
     }
 
@@ -39,14 +45,16 @@ public class DistanceSet {
            for ( int j = i + 1; j < arrayOfPoints.length; j++ ) {
                Distance dis = new Distance(arrayOfPoints[i], arrayOfPoints[j]);
                Double result = dis.getDistance();
-               System.out.println(result);
+               log.info(String.valueOf(result));
 
            }
        }
     }
 
 
-    private class ShortestPairs {
+    @Getter
+    @Setter
+    private static class ShortestPairs {
         private Point pointOne;
         private Point pointTwo;
         private BigDecimal shortestDistance;
@@ -55,26 +63,17 @@ public class DistanceSet {
 
             return false;
         }
-
-
-        public BigDecimal getShortestDistance() {
-            return shortestDistance;
-        }
-
-        public void setShortestDistance(BigDecimal shortestDistance) {
-            this.shortestDistance = shortestDistance;
-        }
     }
 
 
 
-    private class Distance {
-        private Point pointOne;
-        private Point pointTwo;
+    @Data
+    private static class Distance {
+        private final Point pointOne;
+        private final Point pointTwo;
         private double distance;
 
         private double shortestDistance;
-        private Point[] pointsArray;
 
         public Distance( Point pt1, Point pt2) {
             pointOne = pt1;
@@ -84,7 +83,7 @@ public class DistanceSet {
 
 
         private void distanceBetweenPoints(){
-            BigDecimal distance = new BigDecimal(this.pointOne.distance(this.pointTwo));
+            BigDecimal distance = BigDecimal.valueOf(this.pointOne.distance(this.pointTwo));
             this.setDistance(distance.setScale(2, RoundingMode.HALF_EVEN).doubleValue());
 
         }
@@ -99,14 +98,7 @@ public class DistanceSet {
             return distance;
         }
 
-        public void setDistance(double distance) {
-            this.distance = distance;
-        }
-
-        public void setPointsArray(Point[] pointsArray) {
-            this.pointsArray = pointsArray;
-        }
-    } //class Distance
+    }
 
 
 
@@ -117,33 +109,17 @@ public class DistanceSet {
 
 
 
-    private class TestClass {
+    private static class TestClass {
         private int someVal;
         private String someOtherVal;
 
         public void method () {
-            System.out.println("I am some method");
-            System.out.println(someVal);
-            System.out.println(someOtherVal);
+            log.info("I am some method");
+            log.info(String.valueOf(someVal));
+            log.info(someOtherVal);
         }
 
-        public int getSomeVal() {
-            return someVal;
-        }
-
-        public void setSomeVal(int someVal) {
-            this.someVal = someVal;
-        }
-
-        public String getSomeOtherVal() {
-            return someOtherVal;
-        }
-
-        public void setSomeOtherVal(String someOtherVal) {
-            this.someOtherVal = someOtherVal;
-        }
-
-    } //private class TestClass
+    }
 
 }
 

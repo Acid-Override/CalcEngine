@@ -1,7 +1,10 @@
 package com.linkedinlearning.JavaArrays;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
+@Slf4j
 public class CustomArrayList<D> {
 
     private int size = 0;
@@ -14,7 +17,7 @@ public class CustomArrayList<D> {
 
     public D get (int i) {
         if (i < 0 && i >= size) {
-            System.out.println("Invalid index");
+            log.info("Invalid index");
             return null;
         }
             @SuppressWarnings("unchecked")

@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class MathEquation {
     //state of MathEquation class
     private double leftVal;
@@ -32,7 +35,7 @@ public class MathEquation {
             case 's' : this.result = leftVal - rightVal; break;
             case 'm' : this.result = leftVal * rightVal; break;
             case 'd' : this.result = rightVal != 0 ? leftVal / rightVal : 0.0d; break;
-            default : System.out.println("Invalid letter: " + opCode);
+            default : log.info("Invalid letter: " + opCode);
             result = 0.0d;
             break;
         }

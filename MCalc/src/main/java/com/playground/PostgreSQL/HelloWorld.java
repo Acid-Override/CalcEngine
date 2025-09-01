@@ -1,7 +1,10 @@
 package com.playground.PostgreSQL;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.pluralsight.calcengine.Main;
 
+@Slf4j
 public class HelloWorld {
 
 
@@ -11,9 +14,9 @@ public class HelloWorld {
             runningInIntellij = Main.class.getClassLoader().loadClass("com.intellij.rt.execution.application.AppMainV2") != null;
         } catch (ClassNotFoundException e) {}
         if (runningInIntellij) {
-            System.out.println("Happy Coding!"); //
+            log.info("Happy Coding!"); //
         } else {
-            System.out.println("Meh, coding");
+            log.info("Meh, coding");
         }
     }
 }

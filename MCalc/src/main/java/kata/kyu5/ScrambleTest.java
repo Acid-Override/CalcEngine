@@ -1,5 +1,7 @@
 package kata.kyu5;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,13 +9,14 @@ import org.junit.jupiter.api.Test;
 import static kata.kyu5.Scramble.scramble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Slf4j
 class ScrambleTest {
 
     //Scramble scram = new Scramble();
 
     @BeforeEach
     void setUp() {
-        System.out.println("setting up test");
+        log.info("setting up test");
     }
 
     //@Test
@@ -51,7 +54,7 @@ class ScrambleTest {
 
     @Test
     public void test() {
-        System.out.println("Fixed Tests scramble");
+        log.info("Fixed Tests scramble");
         testing(Scramble.scrambleV2("rkqodlw","world"), true);
         testing(Scramble.scrambleV2("cedewaraaossoqqyt","codewars"),true);
         testing(Scramble.scrambleV2("katas","steak"),false);
@@ -71,7 +74,7 @@ class ScrambleTest {
 
     @AfterEach
     void afterEachTestRun() {
-        System.out.println("After Each Test Run");
+        log.info("After Each Test Run");
     }
 
 }

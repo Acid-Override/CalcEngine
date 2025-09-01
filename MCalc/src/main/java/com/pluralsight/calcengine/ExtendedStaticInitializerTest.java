@@ -1,5 +1,8 @@
 package com.pluralsight.calcengine;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ExtendedStaticInitializerTest extends StaticInitializerTest {
 
     // field values
@@ -17,13 +20,13 @@ public class ExtendedStaticInitializerTest extends StaticInitializerTest {
 
     //static initializer
     static {
-        System.out.println("This is the extended static initializer being created here.");
+        log.info("This is the extended static initializer being created here.");
     }
 
 
     @Override
     void someFunction() {
-        System.out.println("Overriding someFunction method in abstract class");
+        log.info("Overriding someFunction method in abstract class");
     }
 
     @Override

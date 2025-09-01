@@ -1,16 +1,19 @@
 package kata.kyu6;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class GrabScrab {
 
     public static List<String> grabScrab(String letters, List<String> dictionary) {
 
 //        for (String word : dictionary) {
-//            System.out.println(word + " " +
+//            log.info(word + " " +
 //                    Arrays.stream(letters.split("")).sorted().collect(Collectors.joining(""))
 //                    + " "
 //                    + Arrays.stream(word.split("")).sorted().collect(Collectors.joining("")));

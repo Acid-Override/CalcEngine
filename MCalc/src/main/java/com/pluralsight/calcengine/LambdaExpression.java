@@ -29,14 +29,14 @@
 //    }
 //
 //    public void Solution () {
-//        System.out.println("Please enter the number of test cases :");
+//        log.info("Please enter the number of test cases :");
 //        Scanner sc = new Scanner(System.in);
 //        testCases = sc.nextInt();
 //
 //        for ( int i = 0; i < testCases; i++) {
 //            Scanner scc = new Scanner(System.in);
-//            System.out.println("Enter a Test case (1 - 3) and a number to test: ");
-//            System.out.println("Test case " + i + " : ");
+//            log.info("Enter a Test case (1 - 3) and a number to test: ");
+//            log.info("Test case " + i + " : ");
 //            String userInput = scc.nextLine();
 //
 //            String[] args = userInput.split(" ");
@@ -54,7 +54,7 @@
 //                case 3 : result.add(isPalindrome()); break;
 //            }
 //        }
-//        System.out.println(hashmap.values());
+//        log.info(hashmap.values());
 //    }
 //
 //    private String isPalindrome(int number) {

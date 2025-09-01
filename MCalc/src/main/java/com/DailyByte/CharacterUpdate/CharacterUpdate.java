@@ -1,5 +1,7 @@
 package com.DailyByte.CharacterUpdate;
 
+import lombok.extern.slf4j.Slf4j;
+
 import lombok.*;
 
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import java.util.Map;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Slf4j
 public class CharacterUpdate {
 
     private String s;
@@ -30,7 +33,7 @@ public class CharacterUpdate {
             hm.put(c, hm.getOrDefault(c, 0) + 1);
 //            hm.merge(c, 1, Integer::sum);
         }
-        hm.forEach((k, v) -> System.out.println(k + " " + v));
+        hm.forEach((k, v) -> log.info(k + " " + v));
 
         return 0;
     }

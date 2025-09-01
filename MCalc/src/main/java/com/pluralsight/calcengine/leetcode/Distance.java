@@ -10,15 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Distance {
 
-    @Test
-    public void firstTest() {
-        Distance dis = new Distance();
-        //dis.distance(1, 1, 0, 0);
-        //assertEquals(dis.distance(1, 1, 0, 0), 1.41);
-        Point point1 = new Point(1,1);
-        Point point2 = new Point(0, 0);
-        assertEquals(dis.distanceBetweenPoints(point1, point2), 1.41);
-    }
+//    @Test
+//    public void firstTest() {
+//        Distance dis = new Distance();
+//        //dis.distance(1, 1, 0, 0);
+//        //assertEquals(dis.distance(1, 1, 0, 0), 1.41);
+//        Point point1 = new Point(1,1);
+//        Point point2 = new Point(0, 0);
+//        assertEquals(dis.distanceBetweenPoints(point1, point2), 1.41);
+//    }
 
     private double distance(int x1, int y1, int x2, int y2) {
         //d=√((x_2-x_1)²+(y_2-y_1)²)

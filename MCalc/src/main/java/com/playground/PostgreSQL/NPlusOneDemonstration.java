@@ -89,25 +89,25 @@ public class NPlusOneDemonstration {
         
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
-            CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
+            CriteriaQuery<jakarta.persistence.Tuple> query = cb.createTupleQuery();
             Root<Customer> customerRoot = query.from(Customer.class);
             
             // Create explicit join
             var orderJoin = customerRoot.join(Customer_.orders, jakarta.persistence.criteria.JoinType.LEFT);
             
             // Select customer and count of orders
-            query.multiselect(
-                customerRoot.get(Customer_.name),
-                cb.count(orderJoin.get("id"))
-            ).where(cb.isFalse(customerRoot.get(Customer_.deleted)))
+            query.select(cb.tuple(
+                customerRoot.get(Customer_.name).alias("customerName"),
+                cb.count(orderJoin.get("id")).alias("orderCount")
+            )).where(cb.isFalse(customerRoot.get(Customer_.deleted)))
              .groupBy(customerRoot.get(Customer_.id), customerRoot.get(Customer_.name));
             
-            List<Object[]> results = session.createQuery(query).getResultList();
+            List<jakarta.persistence.Tuple> results = session.createQuery(query).getResultList();
             
             log.info("✅ Single Query with GROUP BY: Loaded customer names with order counts");
-            for (Object[] result : results) {
-                String customerName = (String) result[0];
-                Long orderCount = (Long) result[1];
+            for (jakarta.persistence.Tuple result : results) {
+                String customerName = result.get("customerName", String.class);
+                Long orderCount = result.get("orderCount", Long.class);
                 log.info("✅ Customer '{}' has {} orders", customerName, orderCount);
             }
             

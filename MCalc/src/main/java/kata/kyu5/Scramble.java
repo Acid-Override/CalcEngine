@@ -1,9 +1,9 @@
 package kata.kyu5;
 
+import lombok.extern.slf4j.Slf4j;
 import java.util.HashMap;
 
-
-
+@Slf4j
 public class Scramble {
 
     private String str1;
@@ -72,9 +72,9 @@ public class Scramble {
 
     public static void test() {
         Integer num = 23;
-        System.out.println(num.toString());
+        log.info(num.toString());
         int numm = 23;
-        System.out.println(numm);
+        log.info(String.valueOf(numm));
     }
 
 

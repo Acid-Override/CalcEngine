@@ -1,5 +1,7 @@
 package com.playground.Virtual_Threads;
 
+import lombok.extern.slf4j.Slf4j;
+
 import lombok.SneakyThrows;
 
 import java.time.Instant;
@@ -8,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.IntStream;
 
+@Slf4j
 public class VirtualDemo {
 
     Set<String> poolNames = ConcurrentHashMap.newKeySet();
@@ -35,7 +38,7 @@ public class VirtualDemo {
             thread.join();
 
             Instant end = Instant.now();
-            System.out.println("Took " + (end.toEpochMilli() - begin.toEpochMilli()) + "ms");
+            log.info("Took " + (end.toEpochMilli() - begin.toEpochMilli()) + "ms");
         }
     }
 }

@@ -1,11 +1,14 @@
 package com.playground.BinaryTree;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Slf4j
 public class BinarySearchTreeTest {
 
     @Test
@@ -21,7 +24,7 @@ public class BinarySearchTreeTest {
         bst.insert(5);
         bst.insert(15);
 
-        System.out.println(bst.toString());
+        log.info(bst.toString());
     }
     @Test
     void createFourNodesUsingRecursion() {
@@ -31,7 +34,7 @@ public class BinarySearchTreeTest {
         bst.insert(15);
         bst.insert(7);
         bst.printValues();
-        System.out.println(bst.toString());
+        log.info(bst.toString());
     }
 
     @Test
@@ -47,7 +50,7 @@ public class BinarySearchTreeTest {
         bst.insert(70);
         bst.insert(65);
         bst.printValues();
-        System.out.println(bst.toString());
+        log.info(bst.toString());
     }
     @Test
     void insertAValue(){
@@ -56,7 +59,7 @@ public class BinarySearchTreeTest {
         bst.insert(40);
         bst.insert(60);
         bst.printValues();
-        System.out.println(bst.toString());
+        log.info(bst.toString());
     }
     @Test
     void findAValue() {
@@ -88,7 +91,7 @@ public class BinarySearchTreeTest {
         bst.insert(4);
         bst.insert(2);
         bst.insert(5);
-        assertEquals(bst.sumLeaves(), 7);
+        assertEquals(7, bst.sumLeaves());
     }
     @Test
     void multiNodeDeepestLeafSum() {
@@ -103,7 +106,7 @@ public class BinarySearchTreeTest {
         bst.insert(70);
         bst.insert(65);
         int result = bst.sumLeaves();
-        System.out.println(result);
+        log.info("Result:{}",result);
     }
     @Test
     void sumAllNodesInTree() {
@@ -128,7 +131,7 @@ public class BinarySearchTreeTest {
         bst.insert(65);
         bst.printValues();
         Integer sum = bst.sum();
-        System.out.println("Total sum is : " + sum);
+        log.info("Total sum is : {}", sum);
         assertEquals(450, sum);
     }
 }

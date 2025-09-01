@@ -1,18 +1,15 @@
 package com.playground.DynamicProgramming.Fibonacci;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//@Slf4j
+@Slf4j
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FibonacciTest {
-
-    private final Logger log = LoggerFactory.getLogger(FibonacciTest.class);
     Fibonacci fib;
 
     @BeforeAll
@@ -26,7 +23,7 @@ class FibonacciTest {
     @Test
     void fib() {
         int result = fib.fib(5);
-        System.out.println("Result =" + result);
+        log.info("Result = {}", result);
         log.info("Actual={}  Expected={}", result, 5);
         assertEquals(5, result);
     }

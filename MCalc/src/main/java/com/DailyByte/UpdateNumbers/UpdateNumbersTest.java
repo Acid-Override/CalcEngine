@@ -1,17 +1,15 @@
 package com.DailyByte.UpdateNumbers;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.logging.Logger;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Slf4j
 class UpdateNumbersTest {
-
-//    Logger log = Logger.getLogger(UpdateNumbersTest.class);
-    Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @BeforeEach
     void setUp() {
@@ -58,7 +56,7 @@ class UpdateNumbersTest {
         UpdateNumbers un = new UpdateNumbers();
         int[] arr = {4, 6, 8, 3, 2, 1, 6, 11, 14, 18, 77, 44, 66, 52, 4, 88, 64, 42, 65, 82, 85, 23};
         int result = un.updateNumbers(arr);
-        System.out.println(result);
+        log.info(String.valueOf(result));
 
     }
     @Test
@@ -70,11 +68,12 @@ class UpdateNumbersTest {
         long startTime = System.nanoTime();
         int updateNumsResult = un.updateNumbers(arr);
         long endTime = System.nanoTime();
-        System.out.println("Update Numbers time : " + (endTime - startTime));
+        long duration = endTime - startTime;
+        log.info("Update Numbers time : {}", duration);
         startTime = System.nanoTime();
         int solutionResult = un.solution(clone);
         endTime = System.nanoTime();
-        System.out.println("Solution time : " + (endTime - startTime));
+        log.info("Solution time : " + (endTime - startTime));
 
         assertEquals(solutionResult, updateNumsResult);
     }

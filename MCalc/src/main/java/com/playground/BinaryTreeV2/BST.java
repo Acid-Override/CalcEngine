@@ -3,8 +3,6 @@ package com.playground.BinaryTreeV2;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Objects;
-
 @Slf4j
 @Getter
 public class BST {
@@ -27,7 +25,7 @@ public class BST {
         for (int j = 0; j < i; j++) {
             System.out.print("    ");
         }
-        System.out.println(rootNode.value);
+        log.info("Value:{}", rootNode.value);
         printTreeRec(rootNode.left, i + 1);
     }
 
@@ -88,10 +86,7 @@ public class BST {
         if (val > node.value) {
             return findRec(node.right, val);
         }
-        if (val < node.value) {
-            return findRec(node.left, val);
-        }
-        return null;
+        return findRec(node.left, val);
     }
 
     public Node remove(int val) {

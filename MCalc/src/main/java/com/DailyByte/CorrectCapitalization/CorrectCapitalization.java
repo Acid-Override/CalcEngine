@@ -1,5 +1,7 @@
 package com.DailyByte.CorrectCapitalization;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Objects;
 
 /**
@@ -14,11 +16,12 @@ import java.util.Objects;
  * "compUter", return false
  * "coding", return true
  */
+@Slf4j
 public class CorrectCapitalization {
 
     public boolean correctCapitalization(String word) {
         boolean result = false;
-        System.out.println(word);
+        log.info(word);
         if (Objects.equals(word.toUpperCase(), word)) {
             result = true;
         }
@@ -27,10 +30,10 @@ public class CorrectCapitalization {
                 result = true;
             }
         }
-        if(word.substring(0).toLowerCase().equals(word.substring(0))){
+        if(word.toLowerCase().equals(word)){
             result = true;
         }
-        System.out.println(result);
+        log.info("Result:{}",result);
         return result;
     }
     public boolean detectCapitalUse(String word) {

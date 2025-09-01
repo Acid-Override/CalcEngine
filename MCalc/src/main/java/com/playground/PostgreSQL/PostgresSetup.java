@@ -1,9 +1,12 @@
 package com.playground.PostgreSQL;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.sql.*;
 import java.util.Properties;
 
+@Slf4j
 public class PostgresSetup {
 
 
@@ -67,14 +70,13 @@ public class PostgresSetup {
                 if (!rs.next()) {
                     // Database doesn't exist, create it
                     stmt.executeUpdate("CREATE DATABASE " + targetDB);
-                    System.out.println("Database " + targetDB + " created successfully.");
+                    log.info("Database {} created successfully.", targetDB);
                 } else {
-                    System.out.println("Database " + targetDB + " already exists.");
+                    log.info("Database {} already exists.", targetDB);
                 }
 
             } catch (SQLException e) {
-                System.err.println("Error creating database: " + e.getMessage());
-                e.printStackTrace();
+                log.error("Error creating database: {}", e.getMessage());
             }
         }
 
@@ -127,10 +129,10 @@ public class PostgresSetup {
                                 ")";
                 stmt.executeUpdate(createOrderItemsTable);
 
-                System.out.println("Tables created successfully.");
+                log.info("Tables created successfully.");
 
             } catch (SQLException e) {
-                System.err.println("Error creating tables: " + e.getMessage());
+                log.error("Error creating tables: " + e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -259,10 +261,10 @@ public class PostgresSetup {
 //
 //                // Commit all changes
 //                conn.commit();
-//                System.out.println("Sample data inserted successfully.");
+//                log.info("Sample data inserted successfully.");
 //
 //            } catch (SQLException e) {
-//                System.err.println("Error inserting sample data: " + e.getMessage());
+//                log.error("Error inserting sample data: " + e.getMessage());
 //                e.printStackTrace();
 //            }
 //        }
@@ -286,11 +288,11 @@ public class PostgresSetup {
                         // Arrays for product data to reference later
                         double[] productPrices = new double[NUM_PRODUCTS + 1];
 
-                        System.out.println("Starting data insertion...");
+                        log.info("Starting data insertion...");
                         long startTime = System.currentTimeMillis();
 
                         // ==================== INSERT CUSTOMERS ====================
-                        System.out.println("Inserting " + NUM_CUSTOMERS + " customers...");
+                        log.info("Inserting {} customers...", NUM_CUSTOMERS);
                         String insertCustomer = "INSERT INTO customers (name, email) VALUES (?, ?)";
                         try (PreparedStatement pstmt = conn.prepareStatement(insertCustomer)) {
 
@@ -327,13 +329,13 @@ public class PostgresSetup {
                                     pstmt.executeBatch();
                                     pstmt.clearBatch();
                                     conn.commit();
-                                    System.out.println("  Processed " + i + " customers");
+                                    log.info("  Processed {} customers", i);
                                 }
                             }
                         }
 
                         // ==================== INSERT PRODUCTS ====================
-                        System.out.println("Inserting " + NUM_PRODUCTS + " products...");
+                        log.info("Inserting {} products...", NUM_PRODUCTS);
                         String insertProduct =
                                 "INSERT INTO products (name, description, price, stock_quantity) VALUES (?, ?, ?, ?)";
                         try (PreparedStatement pstmt = conn.prepareStatement(insertProduct, Statement.RETURN_GENERATED_KEYS)) {
@@ -394,13 +396,13 @@ public class PostgresSetup {
                                     pstmt.executeBatch();
                                     pstmt.clearBatch();
                                     conn.commit();
-                                    System.out.println("  Processed " + i + " products");
+                                    log.info("  Processed {} products", i);
                                 }
                             }
                         }
 
                         // ==================== INSERT ORDERS AND ORDER ITEMS ====================
-                        System.out.println("Inserting " + NUM_ORDERS + " orders with items...");
+                        log.info("Inserting {} orders with items...", NUM_ORDERS);
                         String insertOrder = "INSERT INTO orders (customer_id, status) VALUES (?, ?)";
                         String insertOrderItem = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
 
@@ -457,7 +459,7 @@ public class PostgresSetup {
                             // Commit in batches to improve performance
                             if (++count % (BATCH_SIZE / 10) == 0 || i == NUM_ORDERS) {
                                 conn.commit();
-                                System.out.println("  Processed " + i + " orders");
+                                log.info("  Processed {} orders", i);
                             }
                         }
 
@@ -467,16 +469,15 @@ public class PostgresSetup {
                         long endTime = System.currentTimeMillis();
                         double elapsedSeconds = (endTime - startTime) / 1000.0;
 
-                        System.out.println("Large dataset insertion completed successfully!");
-                        System.out.println("Summary:");
-                        System.out.println("  - " + NUM_CUSTOMERS + " customers inserted");
-                        System.out.println("  - " + NUM_PRODUCTS + " products inserted");
-                        System.out.println("  - " + NUM_ORDERS + " orders inserted");
-                        System.out.println("  - Time taken: " + elapsedSeconds + " seconds");
+                        log.info("Large dataset insertion completed successfully!");
+                        log.info("Summary:");
+                        log.info("  - {} customers inserted", NUM_CUSTOMERS);
+                        log.info("  - {} products inserted", NUM_PRODUCTS);
+                        log.info("  - {} orders inserted", NUM_ORDERS);
+                        log.info("  - Time taken: {} seconds", elapsedSeconds);
 
                     } catch (SQLException e) {
-                        System.err.println("Error inserting sample data: " + e.getMessage());
-                        e.printStackTrace();
+                        log.error("Error inserting sample data: {}", e.getMessage());
                     }
                 }
 
@@ -494,11 +495,10 @@ public class PostgresSetup {
                 createTables();
                 insertSampleData();
 
-                System.out.println("Database setup completed successfully!");
+                log.info("Database setup completed successfully!");
 
             } catch (ClassNotFoundException e) {
-                System.err.println("PostgreSQL JDBC driver not found!");
-                e.printStackTrace();
+                log.error("PostgreSQL JDBC driver not found!");
             }
         }
 
