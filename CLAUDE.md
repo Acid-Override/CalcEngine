@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **📁 AI Workspace:** Additional context and session logs are maintained in the [`.ai/`](.ai/) folder:
+> - [`.ai/instructions.md`](.ai/instructions.md) - Operating instructions and project navigation
+> - [`.ai/sessions/`](.ai/sessions/) - Work session logs with format `{date}-{keywords}.md`
+
 ## Project Overview
 
 This is a Java 21 educational codebase containing algorithm practice problems, coding challenges, and design pattern implementations. The main module `MCalc` serves as a Maven project with integrated PostgreSQL/Hibernate functionality and Kafka messaging capabilities.
