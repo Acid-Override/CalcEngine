@@ -14,42 +14,64 @@ jobs:
   semgrep:
     name: Static Analysis
     runs-on: ubuntu-latest
-    
+
     permissions:
       # Required for private repos to checkout code
       contents: read
       # Required to upload SARIF results to GitHub Security tab
       security-events: write
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
+    - name: Install jq
+      run: sudo apt-get install -y jq
+
     - name: Run Semgrep with custom rules
       run: |
-        docker run --rm -v "${PWD}:/src" semgrep/semgrep:latest \
-          semgrep scan --config .semgrep.yml --sarif --output semgrep.sarif /src || true
-      env:
-        # Optional: Set to get more verbose output
-        SEMGREP_VERBOSE: "false"
-    
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v4
-      with:
-        sarif_file: semgrep.sarif
-      if: always() && hashFiles('semgrep.sarif') != ''
-        
-    # Optional: Fail the build on high severity findings
-    - name: Check for high severity findings
+        docker run --rm -v "${GITHUB_WORKSPACE}:/src" semgrep/semgrep:latest \
+          semgrep scan --config /src/.semgrep.yml --sarif --output /src/semgrep.sarif /src || true
+
+    - name: Check if SARIF file exists
+      id: check-sarif
       run: |
         if [ -f semgrep.sarif ]; then
-          high_findings=$(jq '.runs[0].results | map(select(.level == "error")) | length' semgrep.sarif 2>/dev/null || echo "0")
-          echo "High severity findings: $high_findings"
-          if [ "$high_findings" -gt 0 ]; then
-            echo "❌ Found $high_findings high severity security issues"
-            exit 1
-          fi
+          echo "exists=true" >> $GITHUB_OUTPUT
+          echo "✅ SARIF file generated"
+          ls -lh semgrep.sarif
         else
-          echo "No SARIF file found, skipping high severity check"
+          echo "exists=false" >> $GITHUB_OUTPUT
+          echo "❌ SARIF file not found"
         fi
-      if: always()
+
+    - name: Upload SARIF file to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: steps.check-sarif.outputs.exists == 'true'
+      with:
+        sarif_file: semgrep.sarif
+        category: semgrep
+
+    - name: Display findings summary
+      if: steps.check-sarif.outputs.exists == 'true'
+      run: |
+        echo "## Semgrep Scan Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        total_results=$(jq '.runs[0].results | length' semgrep.sarif 2>/dev/null || echo "0")
+        echo "📊 Total findings: $total_results" >> $GITHUB_STEP_SUMMARY
+
+        error_count=$(jq '.runs[0].results | map(select(.level == "error")) | length' semgrep.sarif 2>/dev/null || echo "0")
+        warning_count=$(jq '.runs[0].results | map(select(.level == "warning")) | length' semgrep.sarif 2>/dev/null || echo "0")
+
+        echo "- 🔴 Errors: $error_count" >> $GITHUB_STEP_SUMMARY
+        echo "- ⚠️ Warnings: $warning_count" >> $GITHUB_STEP_SUMMARY
+
+    - name: Fail on high severity findings
+      if: steps.check-sarif.outputs.exists == 'true'
+      run: |
+        error_count=$(jq '.runs[0].results | map(select(.level == "error")) | length' semgrep.sarif 2>/dev/null || echo "0")
+        echo "High severity findings: $error_count"
+        if [ "$error_count" -gt 0 ]; then
+          echo "❌ Found $error_count high severity security issues"
+          exit 1
+        fi
